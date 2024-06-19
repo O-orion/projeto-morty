@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+/* Fonts */
+$font-title:"Rajdhani", sans-serif;
+$font-subtitle: "Inter", sans-serif;
+
+/* Colors */
+$background-color: '#1B231B';
+$card-color: '#4AC341';
+$border-color: '114c0a';
+$text-color: '#f3f5f2';
+
+/* Border Radius  */
+$border-card: 8px;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
