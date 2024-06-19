@@ -3,13 +3,19 @@ $font-title:"Rajdhani", sans-serif;
 $font-subtitle: "Inter", sans-serif;
 
 /* Colors */
-$background-color: '#1B231B';
+$background-color: '#1b1f1b';
+$primary-color: '#1a441a';
+$secondary-color: '#c3f278';
 $card-color: '#4AC341';
 $border-color: '114c0a';
 $text-color: '#f3f5f2';
+$textSecondary-color: '#545454';
 
 /* Border Radius  */
 $border-card: 8px;
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  background-color: $background-color;
+  margin: 0; font-family: 'Inter' ,Roboto, "Helvetica Neue", sans-serif;
+}
