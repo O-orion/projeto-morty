@@ -1,12 +1,12 @@
 /* Fonts */
-$font-title:"Rajdhani", sans-serif;
+$font-title: "Rajdhani", sans-serif;
 $font-subtitle: "Inter", sans-serif;
 
 /* Colors */
 $background-color: #1b1f1b;
 $primary-color: #19953d;
 $secondary-color: #c3f278;
-$card-color: #4AC341;
+$card-color: #4ac341;
 $border-color: #114c0a;
 $text-color: #f3f5f2;
 $textSecondary-color: #545454;
@@ -14,9 +14,29 @@ $textSecondary-color: #545454;
 /* Border Radius  */
 $border-card: 8px;
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+
+}
+
 body {
   box-sizing: border-box;
   background-color: $background-color;
-  margin: 0; font-family: 'Inter' ,Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  font-family: "Inter", Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0.7em;
+
+  background: #121c35;
+}
+
+::-webkit-scrollbar-thumb {
+  background: -webkit-linear-gradient(transparent, $secondary-color);
+
+  background: linear-gradient(transparent, $primary-color);
+
+  border-radius: 50px;
 }
