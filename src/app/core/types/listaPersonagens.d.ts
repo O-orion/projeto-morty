@@ -31,6 +31,14 @@ interface Location {
   url: string
 }
 
+export interface LocationInfo {
+  id: number,
+  name: string,
+  type: string,
+  dimension: string,
+  residents: string[]
+}
+
 interface Origin {
   name: string,
   url: string,

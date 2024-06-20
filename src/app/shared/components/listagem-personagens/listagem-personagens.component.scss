@@ -12,6 +12,8 @@ p{
     width: 40%;
 
     .card-personagem {
+      margin-top: 10px;
+      cursor: pointer;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), /* Sombra padrão */
       0 6px 20px rgba(0, 0, 0, 0.5);
       padding: 10px;

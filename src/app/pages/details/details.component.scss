@@ -1,0 +1,154 @@
+@import "../../../styles.scss";
+
+p, h2 {
+  margin: 0;
+  padding: 0;
+}
+.container-details {
+  margin-bottom: 60px;
+  padding-top: 80px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .titulo-details {
+    text-align: center;
+    color: $primary-color;
+    font-weight: 700;
+    font-family: $font-title;
+  }
+
+  .info-persona {
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    display: flex;
+
+    .info-image {
+      width: 200px;
+      height: 200px;
+
+      img {
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .info-texts {
+      color: $text-color;
+      margin: 10px;
+      gap: 50px;
+
+      display: flex;
+
+      .info-box {
+        margin-top: 10px;
+
+        .info-titule {
+          font-size: 18px;
+          font-family: $font-title;
+          font-weight: 700;
+
+          span {
+            font-size: 15px;
+            font-family: $font-subtitle;
+            color: $textSecondary-color;
+          }
+
+          .alive {
+            color: $primary-color;
+          }
+
+          .dead {
+            color: red;
+          }
+
+          .unknown {
+            color: $textSecondary-color;
+          }
+        }
+      }
+
+
+      .info-location {
+        border-right: 1px solid;
+        border-image: linear-gradient(
+            to right,
+            transparent,
+            $border-color,
+            transparent
+          )
+          1;
+      }
+    }
+
+    .divisor {
+      width: 150px;
+      height: 1px;
+      border-top: 1px solid;
+      border-image: linear-gradient(
+          to right,
+          transparent,
+          $border-color,
+          transparent
+        )
+        1;
+    }
+  }
+
+  .info-episodios {
+    margin-top: 50px;
+    width: 80%;
+
+
+    .titule-episodio {
+      color: $primary-color;
+      font-weight: 700;
+      font-family: $font-title;
+
+      display: flex;
+      align-items: center;
+
+      span {
+        font-size: 17px;
+        color: $textSecondary-color;
+
+      }
+    }
+
+    .galioery-episods {
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .galery-item {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        cursor: pointer;
+        width: 70px;
+        height: 70px;
+        background-color: $secondary-color;
+        border-radius: 10px;
+
+        p {
+          color: $background-color;
+          font-family: $font-subtitle;
+          font-weight: 400;
+          margin: 0;
+          padding: 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+}
