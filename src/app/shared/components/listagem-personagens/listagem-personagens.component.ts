@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ListaPersonagens } from '../../../core/types/listaPersonagens';
+import { ListaPersonagens, Personagem } from '../../../core/types/listaPersonagens';
 
 @Component({
   selector: 'app-listagem-personagens',
@@ -10,12 +10,10 @@ import { ListaPersonagens } from '../../../core/types/listaPersonagens';
 })
 export class ListagemPersonagensComponent {
 
-  @Input() data!: ListaPersonagens
+  @Input() data!: Personagem[]
 
  ngOnInit() {
-  console.log('olpa')
-  console.log(this.data)
-  console.log('olpa')
+
  }
 
 }

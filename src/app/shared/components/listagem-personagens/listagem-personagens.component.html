@@ -1,7 +1,7 @@
 <section class="container-list">
   <div class="listagem-personagens">
 
-    @for ( personagem of data.results; track  personagem.id) {
+    @for ( personagem of data; track  personagem.id) {
       <div class="card-personagem">
         <div class="image-personagem">
           <img src="{{personagem.image }}" alt="">

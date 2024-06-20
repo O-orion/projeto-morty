@@ -11,6 +11,6 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
    getCharecteres (page: number):Observable<ListaPersonagens> {
-    return this.http.get<ListaPersonagens>(`${this.URL}/${page}`)
+    return this.http.get<ListaPersonagens>(`${this.URL}${page.toString()}`)
   }
 }
