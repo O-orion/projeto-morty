@@ -8,6 +8,7 @@
     <div class="searc-container">
       <input
         type="text"
+        (input)="inputSearch($event)"
         (mouseenter)="expandInput()"
         (mouseleave)="collapseInput()"
         class="search-input"

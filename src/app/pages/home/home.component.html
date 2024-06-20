@@ -1,4 +1,4 @@
 <app-title-color-animado title="Rick And Mory Api" ></app-title-color-animado>
-<div class="character-list">
-  <app-listagem-personagens [data]="data"></app-listagem-personagens>
-</div>
+<app-input-search (search)="onSearch($event)" ></app-input-search>
+<app-listagem-personagens [data]="data"></app-listagem-personagens>
+

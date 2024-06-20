@@ -4,6 +4,7 @@ import { ApiService } from '../../shared/services/api.service';
 import { TitleColorAnimadoComponent } from '../../shared/components/title-color-animado/title-color-animado.component';
 import { ListagemPersonagensComponent } from '../../shared/components/listagem-personagens/listagem-personagens.component';
 import { ListaPersonagens, Personagem } from '../../core/types/listaPersonagens';
+import { InputSearchComponent } from '../../shared/components/input-search/input-search.component';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { ListaPersonagens, Personagem } from '../../core/types/listaPersonagens'
     MenuComponent,
     TitleColorAnimadoComponent,
     ListagemPersonagensComponent,
+    InputSearchComponent
 
   ],
   templateUrl: './home.component.html',
@@ -32,17 +34,18 @@ export class HomeComponent  {
 
   }
 
-  loadCharacters(): void {
+  loadCharacters(reaset:boolean = false): void {
     if (this.loading) return;
 
     this.loading = true;
-    console.log(this.page)
+    if (reaset) {
+      this.data = []
+    }
+
     this.service.getCharecteres(this.page).subscribe({
       next: (result: ListaPersonagens) => {
         // Verifica se já existe dados carregados
-        console.log('aq')
         if (this.data && this.data.length > 0) {
-          console.log('aqw')
 
           // Concatena os novos resultados com os existentes, garantindo que não haja duplicações
           this.data = [...this.data, ...result.results]
@@ -71,6 +74,21 @@ export class HomeComponent  {
 
   onSearch(name: string): void {
     this.nameFilter = name;
+
+    if (this.nameFilter.trim() !== '') {
+      this.service.getSearchCharacter(this.nameFilter).subscribe({
+        next:(data) => {
+          this.data = data.results
+        },
+        error: (er) => {
+          console.error(er)
+          this.data= []
+        }
+      })
+    } else {
+      this.page = 1;
+      this.loadCharacters(true);
+    }
   }
 
 }

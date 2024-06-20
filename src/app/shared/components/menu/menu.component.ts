@@ -21,4 +21,8 @@ export class MenuComponent {
       this.inputWidth = '30px';
     }
   }
+
+  inputSearch(event:any): void {
+    console.log(event.target.value)
+  }
 }
