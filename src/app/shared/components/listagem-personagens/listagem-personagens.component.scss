@@ -16,7 +16,7 @@ p{
       0 6px 20px rgba(0, 0, 0, 0.5);
       padding: 10px;
       width: 100%;
-      
+
       border-radius: 8px;
       display: flex;
 
@@ -112,8 +112,9 @@ p{
             }
 
             .card-subTitle {
-              font-weight: 500;
-              font-size: 20px;
+              font-family: $font-subtitle;
+              font-weight: 400;
+              font-size: 14px;
             }
 
           }

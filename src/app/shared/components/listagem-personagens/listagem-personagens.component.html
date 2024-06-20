@@ -1,38 +1,44 @@
 <section class="container-list">
   <div class="listagem-personagens">
-    <div class="card-personagem">
-      <div class="image-personagem">
-        <img src="https://rickandmortyapi.com/api/character/avatar/4.jpeg" alt="">
-      </div>
+
+    @for ( personagem of data.results; track  personagem.id) {
+      <div class="card-personagem">
+        <div class="image-personagem">
+          <img src="{{personagem.image }}" alt="">
+        </div>
 
 
-      <div class="info-personagem">
-        <section class="info-texts" >
-          <div class="info-persona">
-            <p class="info-name" >Nome: Lucas Viana Torres</p>
-            <div class="status">
-              <p class="text-status">vivo</p>
-              <div class="status-bolha"></div>
+        <div class="info-personagem">
+          <section class="info-texts" >
+            <div class="info-persona">
+              <p class="info-name" > {{ personagem.name }}</p>
+              <div class="status">
+                <p class="text-status">{{ personagem.status }}</p>
+                <div class="status-bolha"></div>
+              </div>
             </div>
-          </div>
-          <p class="info-location">
-            Location: Earth (Replacement Dimension)
-          </p>
+            <p class="info-location">
+              Location: {{ personagem.location.name }}
+            </p>
 
-        </section>
+          </section>
 
-        <section class="cards-info">
-          <div class="card-info">
-            <p class="card-title">Espécie</p>
-            <p class="card-subTitle">Human</p>
-          </div>
-          <div class="card-info">
-            <p class="card-title">Episódios</p>
-            <p class="card-subTitle">51</p>
-          </div>
-        </section>
+          <section class="cards-info">
+            <div class="card-info">
+              <p class="card-title">Espécie</p>
+              <p class="card-subTitle"> {{ personagem.species }} </p>
+            </div>
+            <div class="card-info">
+              <p class="card-title">Episódios</p>
+              <p class="card-subTitle">{{ personagem.episode.length }}</p>
+            </div>
+          </section>
 
+        </div>
       </div>
-    </div>
+
+    } @empty {
+      <p>carregando...</p>
+    }
   </div>
 </section>
