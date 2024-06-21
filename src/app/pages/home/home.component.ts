@@ -68,8 +68,11 @@ export class HomeComponent  {
     const threshold = document.documentElement.scrollHeight - 100;
 
     if (scrollPosition >= threshold && !this.loading) {
-      this.page++;
-      this.loadCharacters();
+      if (this.nameFilter.trim() == '') {
+        this.page++;
+        this.loadCharacters();
+
+      }
     }
   }
 

@@ -1,17 +1,29 @@
 @import "../../../../styles.scss";
 
-p{
-  margin: 0;
-  padding: 0;
-}
-
 .container-list {
   display: flex;
   justify-content: center;
+  width: 100%;
 
   .listagem-personagens {
     width: 40%;
 
   }
 
+}
+
+@media screen and (max-width: 950px) {
+  .container-list {
+    .listagem-personagens {
+      width: 80%;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-list {
+    .listagem-personagens {
+      width: 100% ;
+    }
+  }
 }

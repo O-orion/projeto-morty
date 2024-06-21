@@ -1,10 +1,5 @@
 @import "../../../../styles.scss";
 
-p {
-  margin: 0;
-  padding: 0;
-}
-
 .card-personagem {
   margin-top: 10px;
   cursor: pointer;
@@ -84,4 +79,8 @@ p {
       }
     }
   }
+}
+
+@media screen and (max-width: 950px) {
+  
 }
