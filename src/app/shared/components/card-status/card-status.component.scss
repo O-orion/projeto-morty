@@ -1,0 +1,57 @@
+@import "../../../../styles.scss";
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.status {
+
+  border-radius: 10px;
+  min-width: 70px;
+  max-width: auto;
+  padding: 0 5px;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+
+  .status-bolha {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+  }
+
+  .text-status {
+    font-family: $font-subtitle;
+    font-weight: 500;
+    font-size: 15px;
+    color: $text-color;
+  }
+}
+
+.status-alive {
+  border: $primary-color 1px solid;
+}
+
+.status-dead {
+  border: red 1px solid;
+
+}
+
+.status-unknown {
+  border: $textSecondary-color 1px solid;
+}
+
+.status-bolha-alive {
+  background-color: $primary-color;
+}
+
+.status-bolha-dead {
+  background-color: red;
+}
+
+.status-bolha-unknown {
+  background-color: $textSecondary-color;
+}

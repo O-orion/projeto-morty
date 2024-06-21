@@ -1,0 +1,87 @@
+@import "../../../../styles.scss";
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.card-personagem {
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4),
+    /* Sombra padrão */ 0 6px 20px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  width: 100%;
+
+  border-radius: 8px;
+  display: flex;
+
+  .image-personagem {
+    width: 20%;
+    margin-right: 20px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .info-personagem {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 5px;
+
+    .info-texts {
+      .info-persona {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .info-name {
+          color: $text-color;
+          font-size: 18px;
+          font-family: $font-title;
+          font-weight: 700;
+          margin: 0;
+        }
+      }
+      .info-location {
+        color: $textSecondary-color;
+        font-size: 13px;
+
+        font-weight: 500;
+      }
+    }
+
+    .cards-info {
+      display: flex;
+      gap: 15px;
+      color: $text-color;
+
+      .card-info {
+        border-radius: 5px;
+        min-width: 20%;
+        max-width: auto;
+        background: $primary-color;
+        height: auto;
+        padding: 5px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .card-title {
+          font-size: 12px;
+        }
+
+        .card-subTitle {
+          font-family: $font-subtitle;
+          font-weight: 400;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

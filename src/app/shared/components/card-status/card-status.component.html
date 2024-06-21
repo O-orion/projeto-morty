@@ -1,0 +1,15 @@
+<div class="status" [ngClass]="{
+  'status-alive': status === 'Alive',
+  'status-dead': status === 'Dead',
+  'status-unknown': status === 'unknown'
+}">
+  <p class="text-status"  >{{
+
+    status === 'Alive' ? 'Vivo' : status === 'Dead' ? 'Morto' : 'Desconhecido'
+     }}</p>
+  <div class="status-bolha" [ngClass]="{
+    'status-bolha-alive': status === 'Alive',
+    'status-bolha-dead': status === 'Dead',
+    'status-bolha-unknown': status === 'unknown'
+  }"></div>
+</div>

@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { ListaPersonagens, Personagem } from '../../../core/types/listaPersonagens';
 import { Router } from '@angular/router';
+import { CardPersonagemComponent } from '../card-personagem/card-personagem.component';
 
 @Component({
   selector: 'app-listagem-personagens',
   standalone: true,
   imports: [
+    CardPersonagemComponent
   ],
   templateUrl: './listagem-personagens.component.html',
   styleUrl: './listagem-personagens.component.scss'
