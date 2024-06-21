@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -10,6 +11,8 @@ import { Component } from '@angular/core';
 export class MenuComponent {
 
   inputWidth: string = '30px'; // Largura inicial do input
+
+  constructor(private router: Router) { }
 
   expandInput() {
     this.inputWidth = '150px'; // Largura expandida ao passar o mouse
@@ -24,5 +27,9 @@ export class MenuComponent {
 
   inputSearch(event:any): void {
     console.log(event.target.value)
+  }
+
+  irParHome(): void {
+    this.router.navigate(['/'])
   }
 }
