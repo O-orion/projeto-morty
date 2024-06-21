@@ -30,6 +30,7 @@ export class HomeComponent  {
 
   }
   ngOnInit() {
+    this.data = []
     this.loadCharacters()
 
   }
@@ -81,7 +82,6 @@ export class HomeComponent  {
           this.data = data.results
         },
         error: (er) => {
-          console.error(er)
           this.data= []
         }
       })

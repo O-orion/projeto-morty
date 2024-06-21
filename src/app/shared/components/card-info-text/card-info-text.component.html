@@ -1,0 +1,10 @@
+<div class="info-box">
+  <p class="info-titule" >{{ titule }}: <span
+     [ngClass]="{
+      'alive': status === 'Alive',
+      'dead': status === 'Dead',
+      'unknown': status === 'unknown'
+    }"
+    >{{ text }}</span> </p>
+  <div class="divisor"></div>
+</div>

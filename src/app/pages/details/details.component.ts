@@ -3,12 +3,16 @@ import { ApiService } from '../../shared/services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { LocationInfo, Personagem } from '../../core/types/listaPersonagens';
 import { CommonModule } from '@angular/common';
+import { CardInfoTextComponent } from '../../shared/components/card-info-text/card-info-text.component';
+import { BoxItemComponent } from '../../shared/components/box-item/box-item.component';
 
 @Component({
   selector: 'app-details',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    CardInfoTextComponent,
+    BoxItemComponent
   ],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
@@ -28,7 +32,6 @@ export class DetailsComponent {
   getCharacter(): void {
     this.service.getCaracter(this.id).subscribe({
       next: (data) => {
-        console.log(data)
         this.personagem = data
         this.getLocation(data.location.url)
       }
@@ -36,11 +39,9 @@ export class DetailsComponent {
   }
 
   getLocation(url: string):void {
-    console.log(url)
     let parts = url.split('/')
     const id = Number(parts[parts.length - 1])
 
-    console.log(id)
     this.service.getLocationInfo(id).subscribe({
       next: (data) => {
         this.locationInfo = data

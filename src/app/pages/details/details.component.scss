@@ -1,6 +1,7 @@
 @import "../../../styles.scss";
 
-p, h2 {
+p,
+h2 {
   margin: 0;
   padding: 0;
 }
@@ -42,68 +43,13 @@ p, h2 {
       color: $text-color;
       margin: 10px;
       gap: 50px;
-
       display: flex;
-
-      .info-box {
-        margin-top: 10px;
-
-        .info-titule {
-          font-size: 18px;
-          font-family: $font-title;
-          font-weight: 700;
-
-          span {
-            font-size: 15px;
-            font-family: $font-subtitle;
-            color: $textSecondary-color;
-          }
-
-          .alive {
-            color: $primary-color;
-          }
-
-          .dead {
-            color: red;
-          }
-
-          .unknown {
-            color: $textSecondary-color;
-          }
-        }
-      }
-
-
-      .info-location {
-        border-right: 1px solid;
-        border-image: linear-gradient(
-            to right,
-            transparent,
-            $border-color,
-            transparent
-          )
-          1;
-      }
-    }
-
-    .divisor {
-      width: 150px;
-      height: 1px;
-      border-top: 1px solid;
-      border-image: linear-gradient(
-          to right,
-          transparent,
-          $border-color,
-          transparent
-        )
-        1;
     }
   }
 
   .info-episodios {
     margin-top: 50px;
     width: 80%;
-
 
     .titule-episodio {
       color: $primary-color;
@@ -116,39 +62,32 @@ p, h2 {
       span {
         font-size: 17px;
         color: $textSecondary-color;
-
       }
     }
 
-    .galioery-episods {
+    .galery-episods {
 
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
+      margin-bottom: 50px;
+    }
+  }
+}
 
-      .galery-item {
+@media screen and (max-width: 700px) {
+  .info-persona {
+    flex-direction: column;
+    align-items: center;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        cursor: pointer;
-        width: 70px;
-        height: 70px;
-        background-color: $secondary-color;
-        border-radius: 10px;
-
-        p {
-          color: $background-color;
-          font-family: $font-subtitle;
-          font-weight: 400;
-          margin: 0;
-          padding: 0;
-          text-align: center;
-        }
-      }
+    .info-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
   }
 
+  .galery-episods {
+    justify-content: space-between;
+  }
 }

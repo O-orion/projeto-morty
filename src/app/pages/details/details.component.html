@@ -1,69 +1,62 @@
 @if (personagem) {
-  <section class="container-details">
-    <h2 class="titulo-details" >Detalhes</h2>
+<section class="container-details">
+  <h2 class="titulo-details">Detalhes</h2>
 
-    <section class="info-persona">
-      <div class="info-image">
-        <img  src="{{personagem.image}}" alt="foto do personagem">
-      </div>
+  <section class="info-persona">
+    <div class="info-image">
+      <img src="{{ personagem.image }}" alt="foto do personagem" />
+    </div>
 
-      <div class="info-texts">
-        <section class="info-character">
-            <div class="info-box">
-              <p class="info-titule" >Nome: <span>{{ personagem.name }}</span> </p>
-              <div class="divisor"></div>
-            </div>
-            <div class="info-box">
-              <p class="info-titule" >Especíe:  <span>{{ personagem.species }}</span>  </p>
-              <div class="divisor"></div>
-            </div>
-            <div class="info-box">
-              <p class="info-titule" >Status: <span [ngClass]="{
-                'alive': personagem.status === 'Alive',
-                'dead': personagem.status === 'Dead',
-                'unknown': personagem.status === 'Unknown'
-              }" >{{ personagem.status }}</span> </p>
-              <div class="divisor"></div>
-            </div>
-        </section>
-
-        @if(locationInfo) {
-          <section class="info-location">
-            <div class="info-box">
-              <p class="info-titule" >Localização: <span>{{ locationInfo.name }}</span> </p>
-              <div class="divisor"></div>
-            </div>
-            <div class="info-box">
-              <p class="info-titule" >Tipo: <span>{{ locationInfo.type }}</span> </p>
-              <div class="divisor"></div>
-            </div>
-            <div class="info-box">
-              <p class="info-titule" >Dimensão: <span>{{ locationInfo.dimension }}</span> </p>
-              <div class="divisor"></div>
-            </div>
-            <div class="info-box">
-              <p class="info-titule" >Total de Residentes: <span>{{ locationInfo.residents.length}}</span> </p>
-              <div class="divisor"></div>
-            </div>
-          </section>
-        }
-      </div>
-
-    </section>
-
-    <section class="info-episodios">
-      <h2 class="titule-episodio">Episodios - <span> Total: {{ personagem.episode.length }} </span></h2>
-
-      <section class="galioery-episods">
-        @for (epi of personagem.episode; track epi) {
-          <div class="galery-item">
-            <p>EPI </p>
-            <p>{{ getNumberEpisode(epi) }}</p>
-          </div>
-        }
+    <div class="info-texts">
+      <section class="info-character">
+        <app-card-info-text
+          titule="Nome"
+          [text]="personagem.name"
+        ></app-card-info-text>
+        <app-card-info-text
+          titule="Especíe"
+          [text]="personagem.species"
+        ></app-card-info-text>
+        <app-card-info-text
+          titule="Status"
+          [status]="personagem.status"
+          [text]="personagem.status"
+        ></app-card-info-text>
       </section>
 
-    </section>
-
+      @if(locationInfo) {
+      <section class="info-location">
+        <app-card-info-text
+          titule="Localização"
+          [text]="locationInfo.name"
+        ></app-card-info-text>
+        <app-card-info-text
+          titule="Tipo"
+          [text]="locationInfo.type"
+        ></app-card-info-text>
+        <app-card-info-text
+          titule="Dimensão"
+          [text]="locationInfo.dimension"
+        ></app-card-info-text>
+        <app-card-info-text
+          titule="Total De Habitantes"
+          [text]="locationInfo.residents.length.toString()"
+        ></app-card-info-text>
+      </section>
+      }
+    </div>
   </section>
+
+  <section class="info-episodios">
+    <h2 class="titule-episodio">
+      Episodios - <span> Total: {{ personagem.episode.length }} </span>
+    </h2>
+
+    <section class="galery-episods">
+      @for (epi of personagem.episode; track epi) {
+        <app-box-item [total]="getNumberEpisode(epi)" ></app-box-item>
+      }
+    </section>
+  </section>
+</section>
 }

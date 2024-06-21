@@ -1,0 +1,54 @@
+@import "../../../../styles.scss";
+
+p, span {
+  margin: 0;
+}
+
+.info-box {
+  margin-top: 10px;
+
+  .info-titule {
+    font-size: 18px;
+    font-family: $font-title;
+    font-weight: 700;
+
+    span {
+      font-size: 15px;
+      font-family: $font-subtitle;
+      color: $textSecondary-color;
+    }
+
+    .alive {
+      color: $primary-color;
+    }
+
+    .dead {
+      color: red;
+    }
+
+    .unknown {
+      color: $textSecondary-color;
+    }
+  }
+
+  .divisor {
+    width: 150px;
+    height: 1px;
+    border-top: 1px solid;
+    border-image: linear-gradient(
+        to right,
+        transparent,
+        $border-color,
+        transparent
+      )
+      1;
+  }
+}
+
+
+@media screen and (max-width: 800px ){
+  .info-titule {
+    display: flex;
+    flex-direction: column;
+  }
+}

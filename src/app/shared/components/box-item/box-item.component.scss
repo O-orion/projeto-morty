@@ -1,0 +1,23 @@
+@import "../../../../styles.scss";
+
+.galery-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  background-color: $secondary-color;
+  border-radius: 10px;
+
+  p {
+    color: $background-color;
+    font-family: $font-subtitle;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+}
