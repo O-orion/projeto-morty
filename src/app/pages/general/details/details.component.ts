@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../shared/services/api.service';
+import { ApiService } from '../../../shared/services/api.service';
 import { ActivatedRoute } from '@angular/router';
-import { LocationInfo, Personagem } from '../../core/types/listaPersonagens';
+import { LocationInfo, Personagem } from '../../../core/types/listaPersonagens';
 import { CommonModule } from '@angular/common';
-import { CardInfoTextComponent } from '../../shared/components/card-info-text/card-info-text.component';
-import { BoxItemComponent } from '../../shared/components/box-item/box-item.component';
+import { CardInfoTextComponent } from '../../../shared/components/card-info-text/card-info-text.component';
+import { BoxItemComponent } from '../../../shared/components/box-item/box-item.component';
 
 @Component({
   selector: 'app-details',

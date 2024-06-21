@@ -1,10 +1,10 @@
 import { Component, HostListener } from '@angular/core';
-import { MenuComponent } from '../../shared/components/menu/menu.component';
-import { ApiService } from '../../shared/services/api.service';
-import { TitleColorAnimadoComponent } from '../../shared/components/title-color-animado/title-color-animado.component';
-import { ListagemPersonagensComponent } from '../../shared/components/listagem-personagens/listagem-personagens.component';
-import { ListaPersonagens, Personagem } from '../../core/types/listaPersonagens';
-import { InputSearchComponent } from '../../shared/components/input-search/input-search.component';
+import { MenuComponent } from '../../../shared/components/menu/menu.component';
+import { ApiService } from '../../../shared/services/api.service';
+import { TitleColorAnimadoComponent } from '../../../shared/components/title-color-animado/title-color-animado.component';
+import { ListagemPersonagensComponent } from '../../../shared/components/listagem-personagens/listagem-personagens.component';
+import { ListaPersonagens, Personagem } from '../../../core/types/listaPersonagens';
+import { InputSearchComponent } from '../../../shared/components/input-search/input-search.component';
 
 @Component({
   selector: 'app-home',

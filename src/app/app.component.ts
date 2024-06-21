@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './pages/general/home/home.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 
 @Component({
@@ -11,7 +11,7 @@ import { MenuComponent } from './shared/components/menu/menu.component';
     HomeComponent,
     MenuComponent
   ],
-  
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
