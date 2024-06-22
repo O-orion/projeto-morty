@@ -7,7 +7,7 @@
 
   .box-visualizacao {
 
-    width: 40.1%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,3 +43,21 @@
     background-color: $text-color;
   }
 }
+
+
+
+@media screen and (max-width: 950px) {
+
+  .container {
+    margin: 0;
+    padding: 0 5px;
+    .box-visualizacao {
+
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+  }
+ }

@@ -3,11 +3,11 @@
 .container {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 0px;
 
 
   .box-tabela {
-    width: 90%;
+    width: 80%;
     max-width: 1200px;
     background-color: $table-bg;
     border-radius: 8px;
@@ -57,8 +57,10 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .box-tabela {
+    width: 80% !important;
+    background-color: yellow;
     overflow-x: auto;
 
     .tabela {
