@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { FormCadastroComponent } from '../../shared/components/form-cadastro/form-cadastro.component';
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [],
+  imports: [
+    FormCadastroComponent
+  ],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss'
 })

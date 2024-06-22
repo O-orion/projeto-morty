@@ -1,0 +1,72 @@
+<div class="box-form">
+  <h2 class="titule-form">Crie sua Conta!</h2>
+  <form [formGroup]="formulario" class="container-form" action="">
+    <div class="container-input">
+      <label class="label-form" for="nome"
+        >Nome <span class="required">*</span>
+      </label>
+      <input
+        id="nome"
+        class="campo-form"
+        type="text"
+        placeholder="Fulano D Tal"
+        formControlName="nome"
+      />
+      @if (formulario.get('nome')?.touched && formulario.get('nome')?.invalid) {
+      <span class="form-error">Campo inválido!</span>
+      }
+    </div>
+
+    <div class="container-input">
+      <label class="label-form" for="email"
+        >E-mail <span class="required">*</span>
+      </label>
+      <input
+        id="email"
+        class="campo-form"
+        type="text"
+        placeholder="Fulano@gmail.com"
+        formControlName="email"
+      />
+      @if (formulario.get('email')?.touched && formulario.get('email')?.invalid)
+      {
+      <span class="form-error">Campo inválido!</span>
+      }
+    </div>
+
+    <div class="container-input">
+      <label class="label-form" for="senha"
+        >Senha <span class="required">*</span>
+      </label>
+      <input
+        id="senha"
+        class="campo-form"
+        type="password"
+        placeholder="*******"
+        formControlName="senha"
+      />
+      @if (formulario.get('senha')?.touched && formulario.get('senha')?.invalid)
+      {
+      <span class="form-error">Campo inválido!</span>
+      }
+    </div>
+
+    <div class="container-input">
+      <label class="label-form" for="confirmaSenha"
+        >Confirme Sua Senha <span class="required">*</span>
+      </label>
+      <input
+        id="confirmaSenha"
+        class="campo-form"
+        type="password"
+        placeholder="*******"
+        formControlName="confirmaSenha"
+      />
+      @if (formulario.get('confirmaSenha')?.touched &&
+      formulario.get('confirmaSenha')?.invalid) {
+      <span class="form-error">Campo inválido!</span>
+      }
+    </div>
+  </form>
+  <app-button-submit text="Cadastrar"></app-button-submit>
+</div>

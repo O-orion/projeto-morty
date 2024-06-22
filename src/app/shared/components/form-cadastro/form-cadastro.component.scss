@@ -1,15 +1,20 @@
-@import '../../../../styles.scss'; /* Importa variáveis de estilos globais, se necessário */
+@import '../../../../styles.scss';
 
-.form {
-  width: 100%; /* Ajusta a largura do formulário */
-  max-width: 400px; /* Define a largura máxima do formulário */
-
-  padding: 20px;
-  border-radius: 8px;
+.box-form {
+  color: $text-color;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
+  padding: 20px;
+  overflow: hidden;
+
+  .titule-form {
+    color: $primary-color;
+    font: $font-title;
+    font-weight: 500;
+  }
   .container-form {
     margin-top: 20px;
+
     .container-input {
       display: flex;
       flex-direction: column;
@@ -49,31 +54,5 @@
       }
     }
   }
-
-  .link-form {
-    color: $secondary-color;
-    margin-top: 3px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      left: 0;
-      bottom: 0;
-      height: 2px;
-      width: 0;
-      background: linear-gradient(60deg, $primary-color, $primary-color);
-      transition: width 0.5s;
-    }
-
-    &:hover::before {
-      width: 100%;
-    }
-  }
-
 
 }
