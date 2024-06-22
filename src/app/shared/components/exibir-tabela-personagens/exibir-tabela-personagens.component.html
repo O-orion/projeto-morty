@@ -1,1 +1,28 @@
-<p>exibir-tabela-personagens works!</p>
+<section class="container">
+  <div class="box-tabela">
+    <table class="tabela">
+      <thead class="cabecalho-tabela">
+        <tr>
+          <th>id</th>
+          <th>Nome</th>
+          <th>Localização</th>
+          <th>Especie</th>
+          <th>Status</th>
+          <th>Qtd Episódios</th>
+        </tr>
+      </thead>
+      <tbody class="corpo-tabela">
+        @for(personagem of data; track  personagem.id) {
+          <tr>
+            <td>{{ personagem.id }}</td>
+            <td>{{ personagem.name }}</td>
+            <td>{{ personagem.location.name }}</td>
+            <td>{{ personagem.species }}</td>
+            <td>{{ personagem.status }}</td>
+            <td>{{ personagem.episode.length }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
