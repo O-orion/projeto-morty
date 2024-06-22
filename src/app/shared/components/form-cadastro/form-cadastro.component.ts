@@ -24,4 +24,9 @@ export class FormCadastroComponent {
       confirmaSenha: ['', [Validators.required]],
     })
   }
+
+
+  onSubmit(): void {
+    console.log(this.formulario.getRawValue())
+  }
 }

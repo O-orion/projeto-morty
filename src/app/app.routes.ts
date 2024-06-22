@@ -4,11 +4,13 @@ import { DetailsComponent } from './pages/general/details/details.component';
 import { GeneralComponent } from './pages/general/general.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
     component: GeneralComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
