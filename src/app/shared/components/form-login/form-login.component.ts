@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { InputFieldComponent } from '../input-field/input-field.component';
 import { ButtonSubmitComponent } from '../button-submit/button-submit.component';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { Login } from '../../../core/types/auth';
 
 @Component({
   selector: 'app-form-login',
@@ -18,7 +20,7 @@ import { Router } from '@angular/router';
 export class FormLoginComponent {
   formulario!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
     this.formulario = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       senha: ['', Validators.required]
@@ -26,8 +28,18 @@ export class FormLoginComponent {
   }
 
   onSubmit() {
+    let userLoggin = this.formulario.getRawValue() as Login
+
     if (this.formulario.valid) {
-      console.log(this.formulario.getRawValue());
+
+      let result = this.authService.login(userLoggin.email, userLoggin.senha)
+
+      if (result) {
+        this.router.navigate(['/'])
+      } else {
+        alert('Dados inválidos!')
+      }
+
     } else {
       console.log('Formulário inválido!');
     }
