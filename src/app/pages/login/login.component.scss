@@ -10,23 +10,6 @@
     flex: 1; /* Ocupa 1 unidade do flexbox */
     display: flex;
     justify-content: center;
-    margin-right: 20px;
-
-    .card-image {
-      width: 105px;
-      height: 105px;
-      border-radius: 50%; /* Transforma o quadrado em um círculo */
-      background-color: $primary-color;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      img {
-        width: 80px; /* Ajusta o tamanho da imagem dentro do círculo */
-        height: 80px;
-        border-radius: 50%; /* Garante que a imagem seja circular */
-      }
-    }
   }
 
   .box-form {
@@ -36,93 +19,8 @@
     display: flex;
     justify-content: center;
     border-left: $border-color 1px solid;
-    .form {
-      width: 70%; /* Ajusta a largura do formulário */
-      max-width: 400px; /* Define a largura máxima do formulário */
-
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-
-      .container-form {
-        margin-top: 20px;
 
 
-        .container-input {
-          display: flex;
-          flex-direction: column;
-          margin-top: 15px;
-
-          .label-form {
-            font-family: $font-subtitle;
-            font-weight: 500;
-            text-align: left;
-          }
-
-          .campo-form {
-            width: 95%;
-            padding: 10px;
-            border: 1px solid $textSecondary-color;
-            border-radius: 8px;
-            font-family: $font-subtitle;
-            font-weight: 500;
-            color: $textSecondary-color;
-
-            &:focus {
-              outline: none;
-              border-color: $border-color; /* Ajusta a cor da borda ao focar */
-            }
-          }
-        }
-      }
-
-      .button-form {
-        display: block;
-        margin-top: 20px;
-        height: 40px;
-        width: 100%;
-        border-radius: 50px;
-        border: none;
-        background-color: $border-color;
-        color: $text-color;
-        font-family: $font-subtitle;
-        font-weight: 500;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-          background-color: darken($border-color, 10%); /* Escurece a cor de fundo ao passar o mouse */
-        }
-      }
-
-      .link-form {
-        color: $secondary-color;
-        margin-top: 3px;
-        font-size: 15px;
-        cursor: pointer;
-        transition: 0.5s ease-in-out;
-        position: relative;
-
-        &::before {
-          content: "";
-          position: absolute;
-          z-index: 1;
-          left: 0;
-          bottom: 0;
-          height: 2px;
-          width: 0;
-          background: linear-gradient(60deg, $primary-color, $primary-color);
-          transition: width 0.5s;
-        }
-        
-        &:hover::before {
-          width: 100%;
-        }
-      }
-
-
-    }
   }
 
   @media screen and (max-width: 768px) {

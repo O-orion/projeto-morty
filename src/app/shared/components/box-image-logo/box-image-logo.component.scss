@@ -1,0 +1,17 @@
+@import "../../../../styles.scss"; /* Importa variáveis de estilos globais, se necessário */
+
+.card-image {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%; /* Transforma o quadrado em um círculo */
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 80px; /* Ajusta o tamanho da imagem dentro do círculo */
+    height: 80px;
+    border-radius: 50%; /* Garante que a imagem seja circular */
+  }
+}

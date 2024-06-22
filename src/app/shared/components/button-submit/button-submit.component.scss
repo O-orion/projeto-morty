@@ -1,0 +1,21 @@
+@import '../../../../styles.scss'; /* Importa variáveis de estilos globais, se necessário */
+
+.button-form {
+  display: block;
+  margin-top: 20px;
+  height: 40px;
+  width: 100%;
+  border-radius: 50px;
+  border: none;
+  background-color: $border-color;
+  color: $text-color;
+  font-family: $font-subtitle;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($border-color, 10%); /* Escurece a cor de fundo ao passar o mouse */
+  }
+}

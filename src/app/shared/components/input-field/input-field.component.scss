@@ -1,0 +1,29 @@
+@import '../../../../styles.scss'; /* Importa variáveis de estilos globais, se necessário */
+
+
+.container-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+
+  .label-form {
+    font-family: $font-subtitle;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .campo-form {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid $textSecondary-color;
+    border-radius: 8px;
+    font-family: $font-subtitle;
+    font-weight: 500;
+    color: $textSecondary-color;
+
+    &:focus {
+      outline: none;
+      border-color: $border-color; /* Ajusta a cor da borda ao focar */
+    }
+  }
+}
