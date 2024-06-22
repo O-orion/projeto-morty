@@ -31,6 +31,21 @@ export class AuthService {
     return false;
   }
 
+  getUsuario(): Usuario | null{
+    let email = localStorage.getItem('loggedInUser') as string
+
+    if (email) {
+      let user = localStorage.getItem(email)
+
+      if (user) {
+        return JSON.parse(user) as Usuario
+      }
+    }
+
+    return null
+
+  }
+
   logout () {
     localStorage.removeItem('loggedInUser')
   }

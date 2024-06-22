@@ -73,39 +73,10 @@
       }
     }
 
-    .searc-container {
-      display: flex;
-      position: relative;
-
-
-      .search-icon {
-        margin: 0;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0px 8px 8px 0px;
-
-        span {
-
-          color: #4e4d4d;
-        }
-      }
-
-      .search-input {
-        font-family: $font-subtitle;
-        font-weight: 400;
-        border-radius: 8px 0 0 8px;
-        border: none;
-        padding: 5px;
-        background-color: #fff;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        transition: width 0.3s ease;
-      }
-
-      .expanded {
-        width: 150px; /* Largura expandida do input */
-      }
+    .nome-user {
+      font-family: $font-subtitle;
+      font-weight: 500;
+      color: $secondary-color;
     }
 
     .profile-icon {

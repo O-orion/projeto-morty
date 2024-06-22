@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,8 +12,16 @@ import { Router } from '@angular/router';
 export class MenuComponent {
 
   inputWidth: string = '30px'; // Largura inicial do input
+  nomeUsuario: string = ''
+  constructor(private router: Router, private authService: AuthService) { }
 
-  constructor(private router: Router) { }
+  ngOnInit() {
+    let usuario = this.authService.getUsuario()
+
+    if (usuario != null) {
+      this.nomeUsuario = usuario.nome
+    }
+  }
 
   expandInput() {
     this.inputWidth = '150px'; // Largura expandida ao passar o mouse
