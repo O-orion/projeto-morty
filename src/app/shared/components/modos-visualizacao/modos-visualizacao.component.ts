@@ -1,19 +1,28 @@
+import { CommonModule } from '@angular/common';
 import { Component, output } from '@angular/core';
 
 @Component({
   selector: 'app-modos-visualizacao',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './modos-visualizacao.component.html',
   styleUrl: './modos-visualizacao.component.scss'
 })
 export class ModosVisualizacaoComponent {
-  modoLista: boolean = false;
+  modoLista: boolean = true;
   toggleList = output<boolean>();
 
-  toggle() {
-    this.modoLista = !this.modoLista;
-    this.toggleList.emit(this.modoLista)
+
+  exibirListagem() {
+    this.modoLista = true;
+    this.toggleList.emit(true)
+  }
+
+  exibirTabela() {
+    this.modoLista = false
+    this.toggleList.emit(false)
   }
 
 }

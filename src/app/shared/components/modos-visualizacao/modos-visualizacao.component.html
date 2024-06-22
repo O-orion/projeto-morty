@@ -1,10 +1,10 @@
 <section class="container">
   <div class="box-visualizacao">
     <div class="modos-visualizacao">
-      <span (click)="toggle()" class="listagem-ativa material-symbols-outlined">
+      <span (click)="exibirListagem()" class="material-symbols-outlined" [ngClass]="modoLista == true ? 'listagem-ativa':'icones'">
         view_stream
         </span>
-        <span (click)="toggle()" class="icones material-symbols-outlined">
+        <span (click)="exibirTabela()" class=" material-symbols-outlined" [ngClass]="modoLista == false ? 'listagem-ativa':'icones'">
           list
           </span>
     </div>

@@ -25,7 +25,7 @@ import { ExibirTabelaPersonagensComponent } from '../../../shared/components/exi
 
 })
 export class HomeComponent  {
-  exibirListaPersonagem: boolean = false;
+  exibirListaPersonagem: boolean = true;
   data!: Personagem[]
   page: number = 1;
   loading: boolean = false;
@@ -100,7 +100,9 @@ export class HomeComponent  {
   }
 
   exibirModoLista(exibirLista: boolean) {
-    this.exibirListaPersonagem = exibirLista;
-    console.log( exibirLista )
+    if(exibirLista != this.exibirListaPersonagem) {
+      this.exibirListaPersonagem = exibirLista;
+    }
+
   }
 }

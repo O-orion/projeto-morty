@@ -51,7 +51,10 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('loggedInUser')
+    if (typeof localStorage !== 'undefined') {
+      return !!localStorage.getItem('loggedInUser');
+    }
+    return false;
   }
-
+  
 }

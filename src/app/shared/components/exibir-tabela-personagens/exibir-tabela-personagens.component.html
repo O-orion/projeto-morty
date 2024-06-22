@@ -13,7 +13,7 @@
       </thead>
       <tbody class="corpo-tabela">
         @for(personagem of data; track personagem.id) {
-          <tr>
+          <tr (click)="detailsPage(personagem.id)" >
             <td data-label="Id">{{ personagem.id }}</td>
             <td data-label="Nome">{{ personagem.name }}</td>
             <td data-label="Localização">{{ personagem.location.name }}</td>

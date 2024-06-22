@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Personagem } from '../../../core/types/listaPersonagens';
 import {MatTableModule} from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exibir-tabela-personagens',
@@ -16,11 +17,14 @@ export class ExibirTabelaPersonagensComponent {
   @Input() data!: Personagem[]
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    console.log('olá')
-    console.log(this.data)
   }
+
+  detailsPage(id: number):void {
+    this.router.navigate(['/details', id])
+   }
 
 
 }
