@@ -1,19 +1,14 @@
 @import "../../../../styles.scss";
 
-
-$table-bg: #ececec;
-$table-hover-bg: #dedede;
-$table-border-color: #dddddd;
-
 .container {
   display: flex;
   justify-content: center;
-
   padding: 20px;
 
-  .box-tabela {
 
-    width: 70%;
+  .box-tabela {
+    width: 90%;
+    max-width: 1200px;
     background-color: $table-bg;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -56,6 +51,50 @@ $table-border-color: #dddddd;
         td {
           color: #333;
           font-family: $font-subtitle;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .box-tabela {
+    overflow-x: auto;
+
+    .tabela {
+      display: block;
+
+      thead {
+        display: none;
+      }
+
+      tbody {
+        display: block;
+
+        tr {
+          display: flex;
+          flex-direction: column;
+          border-bottom: 2px solid $table-border-color;
+          margin-bottom: 10px;
+          padding: 10px;
+
+          td {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 5px;
+            border-bottom: 1px solid $table-border-color;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            &::before {
+              content: attr(data-label);
+              flex-basis: 40%;
+              text-align: left;
+              font-weight: bold;
+            }
+          }
         }
       }
     }
