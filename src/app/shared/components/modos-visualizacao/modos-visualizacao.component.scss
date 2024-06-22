@@ -1,0 +1,45 @@
+@import '../../../../styles.scss';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .box-visualizacao {
+
+    width: 40.1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .modos-visualizacao {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+
+  .listagem-ativa {
+    padding: 5px;
+    background-color: $secondary-color;
+    color: $textSecondary-color;
+    cursor: pointer;
+    border-radius: 8px;
+
+  }
+
+  .icones {
+    padding: 5px;
+    background-color: $primary-color;
+    border-radius: 8px;
+    color: $text-color;
+    cursor: pointer;
+
+    transition: 0.5s ease-in-out;
+  }
+
+  .icones:hover {
+    color: $primary-color;
+    background-color: $text-color;
+  }
+}

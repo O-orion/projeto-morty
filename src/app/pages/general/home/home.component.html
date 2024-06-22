@@ -1,4 +1,9 @@
 <app-title-color-animado title="Rick And Mory Api" ></app-title-color-animado>
 <app-input-search (search)="onSearch($event)" ></app-input-search>
-<app-listagem-personagens [data]="data"></app-listagem-personagens>
+<app-modos-visualizacao (toggleList)="exibirModoLista($event)" ></app-modos-visualizacao>
+@if(exibirListaPersonagem){
+  <app-listagem-personagens [data]="data"></app-listagem-personagens>
+} @else {
+  <app-exibir-tabela-personagens [data]="data"></app-exibir-tabela-personagens>
+}
 

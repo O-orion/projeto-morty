@@ -5,6 +5,8 @@ import { TitleColorAnimadoComponent } from '../../../shared/components/title-col
 import { ListagemPersonagensComponent } from '../../../shared/components/listagem-personagens/listagem-personagens.component';
 import { ListaPersonagens, Personagem } from '../../../core/types/listaPersonagens';
 import { InputSearchComponent } from '../../../shared/components/input-search/input-search.component';
+import { ModosVisualizacaoComponent } from '../../../shared/components/modos-visualizacao/modos-visualizacao.component';
+import { ExibirTabelaPersonagensComponent } from '../../../shared/components/exibir-tabela-personagens/exibir-tabela-personagens.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,9 @@ import { InputSearchComponent } from '../../../shared/components/input-search/in
     MenuComponent,
     TitleColorAnimadoComponent,
     ListagemPersonagensComponent,
-    InputSearchComponent
+    InputSearchComponent,
+    ModosVisualizacaoComponent,
+    ExibirTabelaPersonagensComponent
 
   ],
   templateUrl: './home.component.html',
@@ -21,6 +25,7 @@ import { InputSearchComponent } from '../../../shared/components/input-search/in
 
 })
 export class HomeComponent  {
+  exibirListaPersonagem: boolean = false;
   data!: Personagem[]
   page: number = 1;
   loading: boolean = false;
@@ -94,4 +99,8 @@ export class HomeComponent  {
     }
   }
 
+  exibirModoLista(exibirLista: boolean) {
+    this.exibirListaPersonagem = exibirLista;
+    console.log( exibirLista )
+  }
 }
