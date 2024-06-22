@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BoxImageLogoComponent } from '../../shared/components/box-image-logo/box-image-logo.component';
 import { FormLoginComponent } from '../../shared/components/form-login/form-login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,5 +14,6 @@ import { FormLoginComponent } from '../../shared/components/form-login/form-logi
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+
 
 }
