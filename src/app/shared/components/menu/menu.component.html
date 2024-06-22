@@ -25,8 +25,13 @@
       </div>
     </div> -->
     <p class="nome-user" >Olá, {{ nomeUsuario }}!</p>
-    <div class="icon profile-icon">
-      <span class="material-symbols-outlined"> person </span>
+    <div class="icon profile-icon"
+         (click)="toggleMenu()"
+         >
+      <span class="material-symbols-outlined">person</span>
+      <app-profile-menu [show]="isMenuVisible" ></app-profile-menu>
     </div>
   </div>
+
+
 </section>
