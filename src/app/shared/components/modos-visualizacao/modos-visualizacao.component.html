@@ -9,8 +9,17 @@
           </span>
     </div>
 
-    <span class="icones material-symbols-outlined">
-      filter_list
-      </span>
+    <div (click)="exibirMenuFiltro()" class="filtro-status ">
+      <span class="icones material-symbols-outlined">
+        filter_list
+        </span>
+        <p>{{ filtro }}</p>
+
+        <div  [ngClass]="show ? 'filtro-menu' : 'filtro-off'">
+          @for(filtro of filtros; track filtro) {
+            <p (click)="selecionarFiltro(filtro)" >{{ filtro }}</p>
+          }
+        </div>
+    </div>
   </div>
 </section>

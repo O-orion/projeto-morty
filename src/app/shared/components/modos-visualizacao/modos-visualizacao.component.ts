@@ -13,7 +13,9 @@ import { Component, output } from '@angular/core';
 export class ModosVisualizacaoComponent {
   modoLista: boolean = true;
   toggleList = output<boolean>();
-
+  show: boolean =  false;
+  filtros: string[] = ['Vivo', 'Morto', 'Desconhecido', 'Todos']
+  filtro: string = 'Todos';
 
   exibirListagem() {
     this.modoLista = true;
@@ -25,4 +27,11 @@ export class ModosVisualizacaoComponent {
     this.toggleList.emit(false)
   }
 
+  exibirMenuFiltro() {
+    this.show = !this.show;
+  }
+
+  selecionarFiltro(filtro: string) {
+    this.filtro = filtro
+  }
 }
