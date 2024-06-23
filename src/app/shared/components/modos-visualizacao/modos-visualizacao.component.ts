@@ -11,9 +11,12 @@ import { Component, output } from '@angular/core';
   styleUrl: './modos-visualizacao.component.scss'
 })
 export class ModosVisualizacaoComponent {
-  modoLista: boolean = true;
+  filtroEscolhido = output<string>()
   toggleList = output<boolean>();
+
+  modoLista: boolean = true;
   show: boolean =  false;
+
   filtros: string[] = ['Vivo', 'Morto', 'Desconhecido', 'Todos']
   filtro: string = 'Todos';
 
@@ -32,6 +35,12 @@ export class ModosVisualizacaoComponent {
   }
 
   selecionarFiltro(filtro: string) {
-    this.filtro = filtro
+    if(this.filtro != filtro) {
+      this.filtro = filtro
+      this.filtroEscolhido.emit(this.filtro)
+    }
   }
+
+
+
 }
