@@ -1,34 +1,28 @@
 @import "../../../../styles.scss";
 
-p,
-h2 {
-  margin: 0;
-  padding: 0;
-}
 .container-details {
   margin-bottom: 60px;
   padding-top: 80px;
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  .titulo-details {
+  .title-details {
     text-align: center;
     color: $primary-color;
     font-weight: 700;
     font-family: $font-title;
   }
 
-  .info-persona {
+  .character-info {
     padding: 0;
     border-radius: 10px;
     box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.5);
     width: 80%;
     display: flex;
 
-    .info-image {
+    .character-image {
       width: 200px;
       height: 200px;
 
@@ -38,24 +32,16 @@ h2 {
         height: 100%;
       }
     }
-
-    .info-texts {
-      color: $text-color;
-      margin: 10px;
-      gap: 50px;
-      display: flex;
-    }
   }
 
-  .info-episodios {
+  .episode-info {
     margin-top: 50px;
     width: 80%;
 
-    .titule-episodio {
+    .episode-title {
       color: $primary-color;
       font-weight: 700;
       font-family: $font-title;
-
       display: flex;
       align-items: center;
 
@@ -66,8 +52,7 @@ h2 {
       }
     }
 
-    .galery-episods {
-
+    .episode-gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -77,18 +62,18 @@ h2 {
 }
 
 @media screen and (max-width: 700px) {
-  .info-persona {
+  .character-info {
     flex-direction: column;
     align-items: center;
 
-    .info-image {
+    .character-image {
       width: 100%;
       display: flex;
       justify-content: center;
     }
   }
 
-  .galery-episods {
+  .episode-gallery {
     justify-content: space-between;
   }
 }

@@ -1,0 +1,8 @@
+@import '../../../../styles.scss'; /* Importa variáveis de estilos globais, se necessário */
+
+.info-texts {
+  color: $text-color;
+  margin: 10px;
+  gap: 50px;
+  display: flex;
+}

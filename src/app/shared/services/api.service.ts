@@ -18,7 +18,7 @@ export class ApiService {
     return this.http.get<ListaPersonagens>(`${this.URL}character?name=${searchValue}`).pipe(take(1))
   }
 
-  getCaracter(id: number): Observable<Personagem> {
+  getCharacter(id: number): Observable<Personagem> {
     return this.http.get<Personagem>(`${this.URL}character/${id}`).pipe(take(1))
   }
 

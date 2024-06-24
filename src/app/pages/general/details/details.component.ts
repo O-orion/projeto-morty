@@ -5,6 +5,7 @@ import { LocationInfo, Personagem } from '../../../core/types/listaPersonagens';
 import { CommonModule } from '@angular/common';
 import { CardInfoTextComponent } from '../../../shared/components/card-info-text/card-info-text.component';
 import { BoxItemComponent } from '../../../shared/components/box-item/box-item.component';
+import { InfosPageDetailsComponent } from '../../../shared/components/infos-page-details/infos-page-details.component';
 
 @Component({
   selector: 'app-details',
@@ -12,46 +13,49 @@ import { BoxItemComponent } from '../../../shared/components/box-item/box-item.c
   imports: [
     CommonModule,
     CardInfoTextComponent,
-    BoxItemComponent
+    BoxItemComponent,
+    InfosPageDetailsComponent
   ],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
 export class DetailsComponent {
-  id: number = 0
-  personagem!: Personagem;
-  locationInfo!: LocationInfo
+  characterId: number = 0;
+  character!: Personagem;
+  characterLocationInfo!: LocationInfo;
 
-  constructor(private service: ApiService, private router: ActivatedRoute) { }
+  constructor(private apiService: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.id = Number(this.router.snapshot.paramMap.get('id'))
-    this.getCharacter()
+    // Pega o ID da URL
+    this.characterId = Number(this.route.snapshot.paramMap.get('id'));
+    this.fetchCharacterDetails();
   }
 
-  getCharacter(): void {
-    this.service.getCaracter(this.id).subscribe({
+  // Obtendo os detalhes do personagem
+  fetchCharacterDetails(): void {
+    this.apiService.getCharacter(this.characterId).subscribe({
       next: (data) => {
-        this.personagem = data
-        this.getLocation(data.location.url)
+        this.character = data;
+        this.fetchLocationDetails(data.location.url);
       }
-    })
+    });
   }
 
-  getLocation(url: string):void {
-    let parts = url.split('/')
-    const id = Number(parts[parts.length - 1])
+  // Obtendo os detalhes da localização
+  fetchLocationDetails(url: string): void {
+    // Obtendo o ID da localização a partir da URL
+    const locationId = Number(url.split('/').pop());
 
-    this.service.getLocationInfo(id).subscribe({
+    this.apiService.getLocationInfo(locationId).subscribe({
       next: (data) => {
-        this.locationInfo = data
+        this.characterLocationInfo = data;
       }
-    })
+    });
   }
 
-  getNumberEpisode(url:string): string {
-    let parts =  url.split('/')
-    let epi = parts[parts.length - 1]
-    return epi;
+  // Extraindo o número do episódio a partir da URL
+  extractEpisodeNumber(url: string): string {
+    return url.split('/').pop() || '';
   }
 }

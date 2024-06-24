@@ -1,0 +1,37 @@
+<div class="info-texts">
+  <section class="info-character">
+    <app-card-info-text
+      titule="Nome"
+      [text]="character.name"
+    ></app-card-info-text>
+    <app-card-info-text
+      titule="Especíe"
+      [text]="character.species"
+    ></app-card-info-text>
+    <app-card-info-text
+      titule="Status"
+      [status]="character.status"
+      [text]="character.status"
+    ></app-card-info-text>
+  </section>
+
+  <section class="info-location">
+    <app-card-info-text
+      titule="Localização"
+      [text]="locationInfo.name"
+    ></app-card-info-text>
+    <app-card-info-text
+      titule="Tipo"
+      [text]="locationInfo.type"
+    ></app-card-info-text>
+    <app-card-info-text
+      titule="Dimensão"
+      [text]="locationInfo.dimension"
+    ></app-card-info-text>
+    <app-card-info-text
+      titule="Total De Habitantes"
+      [text]="locationInfo.residents.length.toString()"
+    ></app-card-info-text>
+  </section>
+
+</div>
