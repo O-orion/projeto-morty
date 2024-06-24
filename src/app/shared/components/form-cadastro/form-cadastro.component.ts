@@ -3,6 +3,7 @@ import { ButtonSubmitComponent } from '../button-submit/button-submit.component'
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Usuario } from '../../../core/types/usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-cadastro',
@@ -20,7 +21,7 @@ export class FormCadastroComponent {
   @Input() title: string = ''; // Título do formulário, recebido como input
   @Input() exibirSenha: boolean = true; // Flag para exibir campos de senha
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     this.formulario = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       nome: ['', Validators.required],
@@ -41,5 +42,9 @@ export class FormCadastroComponent {
     } else {
       console.log('Formulário inválido. Verifique os campos.');
     }
+  }
+
+  returnLogin(): void {
+    this.router.navigate(['/login'])
   }
 }

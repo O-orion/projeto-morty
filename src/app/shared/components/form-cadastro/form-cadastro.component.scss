@@ -12,6 +12,17 @@
     font-weight: 500;
   }
 
+  .button-return {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+
+    display: flex;
+
+    color: $secondary-color;
+    cursor: pointer;
+  }
+
   .container-form {
     margin-top: 20px;
 
