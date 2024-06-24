@@ -87,7 +87,7 @@ export class HomeComponent {
           (personagem) => personagem.status === 'Dead'
         );
         break;
-      case 'Desconhecido':
+      case 'Outros':
         this.data = this.originalData.filter(
           (personagem) => personagem.status === 'unknown'
         );

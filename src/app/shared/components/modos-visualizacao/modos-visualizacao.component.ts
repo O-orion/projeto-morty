@@ -15,8 +15,8 @@ export class ModosVisualizacaoComponent {
 
   isListMode: boolean = true;
   isFilterMenuVisible: boolean = false;
-  filtros: string[] = ['Vivo', 'Morto', 'Desconhecido', 'Todos'];
-  filtroAtual: string = 'Todos'; 
+  filtros: string[] = ['Vivo', 'Morto', 'Outros', 'Todos'];
+  filtroAtual: string = 'Todos';
 
   // Exibe a listagem
   exibirListagem() {
