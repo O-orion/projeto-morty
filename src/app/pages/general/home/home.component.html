@@ -2,7 +2,7 @@
 <app-input-search (search)="onSearch($event)" ></app-input-search>
 <app-modos-visualizacao (filtroEscolhido)="filtrarListaPorStatus($event)" (toggleList)="exibirModoLista($event)" ></app-modos-visualizacao>
 @if(exibirListaPersonagem){
-  <app-listagem-personagens [data]="data"></app-listagem-personagens>
+  <app-listagem-personagens [personagens]="data"></app-listagem-personagens>
 } @else {
   <app-exibir-tabela-personagens [data]="data"></app-exibir-tabela-personagens>
 }

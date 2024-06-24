@@ -1,25 +1,23 @@
 <section class="container">
   <div class="box-visualizacao">
     <div class="modos-visualizacao">
-      <span (click)="exibirListagem()" class="material-symbols-outlined" [ngClass]="modoLista == true ? 'listagem-ativa':'icones'">
+      <span (click)="exibirListagem()" class="material-symbols-outlined" [ngClass]="isListMode ? 'listagem-ativa' : 'icones'">
         view_stream
-        </span>
-        <span (click)="exibirTabela()" class=" material-symbols-outlined" [ngClass]="modoLista == false ? 'listagem-ativa':'icones'">
-          list
-          </span>
+      </span>
+      <span (click)="exibirTabela()" class="material-symbols-outlined" [ngClass]="!isListMode ? 'listagem-ativa' : 'icones'">
+        list
+      </span>
     </div>
 
-    <div (click)="exibirMenuFiltro()" class="filtro-status ">
-      <span class="icones material-symbols-outlined">
-        filter_list
-        </span>
-        <p>{{ filtro }}</p>
+    <div (click)="exibirMenuFiltro()" class="filtro-status">
+      <span class="icones material-symbols-outlined">filter_list</span>
+      <p>{{ filtroAtual }}</p>
 
-        <div  [ngClass]="show ? 'filtro-menu' : 'filtro-off'">
-          @for(filtro of filtros; track filtro) {
-            <p (click)="selecionarFiltro(filtro)" >{{ filtro }}</p>
-          }
-        </div>
+      <div [ngClass]="isFilterMenuVisible ? 'filtro-menu' : 'filtro-off'">
+        @for (filtro of filtros; track filtro) {
+          <p (click)="selecionarFiltro(filtro)">{{ filtro }}</p>
+        }
+      </div>
     </div>
   </div>
 </section>

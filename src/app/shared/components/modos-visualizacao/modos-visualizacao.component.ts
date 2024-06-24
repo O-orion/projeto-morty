@@ -1,46 +1,45 @@
 import { CommonModule } from '@angular/common';
-import { Component, output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modos-visualizacao',
   standalone: true,
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   templateUrl: './modos-visualizacao.component.html',
-  styleUrl: './modos-visualizacao.component.scss'
+  styleUrls: ['./modos-visualizacao.component.scss']
 })
 export class ModosVisualizacaoComponent {
-  filtroEscolhido = output<string>()
-  toggleList = output<boolean>();
 
-  modoLista: boolean = true;
-  show: boolean =  false;
+  @Output() filtroEscolhido = new EventEmitter<string>();
+  @Output() toggleList = new EventEmitter<boolean>();
 
-  filtros: string[] = ['Vivo', 'Morto', 'Desconhecido', 'Todos']
-  filtro: string = 'Todos';
+  isListMode: boolean = true;
+  isFilterMenuVisible: boolean = false;
+  filtros: string[] = ['Vivo', 'Morto', 'Desconhecido', 'Todos'];
+  filtroAtual: string = 'Todos'; 
 
+  // Exibe a listagem
   exibirListagem() {
-    this.modoLista = true;
-    this.toggleList.emit(true)
+    this.isListMode = true;
+    this.toggleList.emit(true);
   }
 
+  // Exibe a tabela
   exibirTabela() {
-    this.modoLista = false
-    this.toggleList.emit(false)
+    this.isListMode = false;
+    this.toggleList.emit(false);
   }
 
+  // Exibe ou esconde o menu de filtro
   exibirMenuFiltro() {
-    this.show = !this.show;
+    this.isFilterMenuVisible = !this.isFilterMenuVisible;
   }
 
+  // Seleciona um filtro
   selecionarFiltro(filtro: string) {
-    if(this.filtro != filtro) {
-      this.filtro = filtro
-      this.filtroEscolhido.emit(this.filtro)
+    if (this.filtroAtual !== filtro) {
+      this.filtroAtual = filtro;
+      this.filtroEscolhido.emit(this.filtroAtual);
     }
   }
-
-
-
 }

@@ -1,8 +1,8 @@
-@import '../../../../styles.scss'; /* Importa variáveis de estilos globais, se necessário */
+@import '../../../../styles.scss';
 
 .form {
-  width: 100%; /* Ajusta a largura do formulário */
-  max-width: 400px; /* Define a largura máxima do formulário */
+  width: 100%;
+  max-width: 400px;
 
   padding: 20px;
   border-radius: 8px;
@@ -10,6 +10,7 @@
 
   .container-form {
     margin-top: 20px;
+
     .container-input {
       display: flex;
       flex-direction: column;
@@ -21,7 +22,7 @@
         text-align: left;
 
         .required {
-          color: rgb(212, 53, 53);;
+          color: rgb(212, 53, 53);
         }
       }
 
@@ -36,7 +37,7 @@
 
         &:focus {
           outline: none;
-          border-color: $border-color; /* Ajusta a cor da borda ao focar */
+          border-color: $border-color; // Ajusta a cor da borda ao focar
         }
       }
 
@@ -74,6 +75,4 @@
       width: 100%;
     }
   }
-
-
 }

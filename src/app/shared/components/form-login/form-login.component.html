@@ -1,36 +1,36 @@
 <div class="form">
   <h2>Faça seu Login!</h2>
-  <form  [formGroup]="formulario" class="container-form" action="">
+  <form [formGroup]="formulario" class="container-form" action="">
     <div class="container-input">
-      <label  class="label-form" for="email">E-mail  <span class="required">*</span>  </label>
+      <label class="label-form" for="email">E-mail <span class="required">*</span></label>
       <input
-      id="email"
-      class="campo-form"
-      type="text"
-      placeholder="Fulano@gmail.com"
-      formControlName="email"
+        id="email"
+        class="campo-form"
+        type="text"
+        placeholder="Fulano@gmail.com"
+        formControlName="email"
       >
+      <!-- Mostra mensagem de erro se o campo de email for inválido e foi tocado -->
       @if (formulario.get('email')?.touched && formulario.get('email')?.invalid) {
-        <span class="form-error" >Campo inválido!</span>
+        <span class="form-error">Campo inválido!</span>
       }
     </div>
 
     <div class="container-input">
-      <label  class="label-form" for="senha">Senha <span class="required">*</span> </label>
+      <label class="label-form" for="senha">Senha <span class="required">*</span></label>
       <input
-      id="senha"
-      class="campo-form"
-      type="password"
-      placeholder="*******"
-      formControlName="senha"
+        id="senha"
+        class="campo-form"
+        type="password"
+        placeholder="*******"
+        formControlName="senha"
       >
-
+      <!-- Mostra mensagem de erro se o campo de senha for inválido e foi tocado -->
       @if (formulario.get('senha')?.touched && formulario.get('senha')?.invalid) {
-        <span class="form-error" >Campo inválido!</span>
+        <span class="form-error">Campo inválido!</span>
       }
     </div>
-
   </form>
-  <app-button-submit (submit)="onSubmit()" text="Entrar" ></app-button-submit>
+  <app-button-submit (submit)="onSubmit()" text="Entrar"></app-button-submit>
   <a (click)="irParaCadastro()" class="link-form">Faça seu cadastro aqui!</a>
 </div>

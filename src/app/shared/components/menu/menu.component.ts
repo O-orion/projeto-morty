@@ -1,4 +1,4 @@
-import { Component,Renderer2 } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ProfileMenuComponent } from '../profile-menu/profile-menu.component';
@@ -12,24 +12,24 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.scss'
+  styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
 
-  inputWidth: string = '30px'; // Largura inicial do input
-  nomeUsuario: string = ''
-  isMenuVisible = false;
-  constructor(private router: Router, private authService: AuthService, private renderer:  Renderer2) { }
+
+  nomeUsuario: string = '';
+  isMenuVisible = false; // Estado da visibilidade do menu
+
+  constructor(private router: Router, private authService: AuthService, private renderer: Renderer2) { }
 
   ngOnInit() {
-    let usuario = this.authService.getUsuario()
-
-    if (usuario != null) {
-      this.nomeUsuario = usuario.nome.split(' ')[0]
+    const usuario = this.authService.getUsuario();
+    if (usuario) {
+      this.nomeUsuario = usuario.nome.split(' ')[0];
     }
   }
 
-
+  // Alterna a visibilidade do menu de perfil
   toggleMenu() {
     this.isMenuVisible = !this.isMenuVisible;
     if (this.isMenuVisible) {
@@ -39,14 +39,17 @@ export class MenuComponent {
     }
   }
 
+  // Adiciona um listener para clicar fora do menu
   private addDocumentClickListener() {
     this.renderer.listen('document', 'click', this.documentClickListener.bind(this));
   }
 
+  // Remove o listener de clicar fora do menu
   private removeDocumentClickListener() {
     this.renderer.listen('document', 'click', () => {});
   }
 
+  // Listener para detectar cliques fora do menu
   private documentClickListener(event: Event) {
     const target = event.target as HTMLElement;
     const clickedInside = target.closest('.profile-icon');
@@ -58,22 +61,8 @@ export class MenuComponent {
   }
 
 
-  expandInput() {
-    this.inputWidth = '150px'; // Largura expandida ao passar o mouse
-  }
-
-  collapseInput() {
-    // Se o input não estiver focado, volta para a largura inicial
-    if (!document.activeElement || document.activeElement.tagName.toLowerCase() !== 'input') {
-      this.inputWidth = '30px';
-    }
-  }
-
-  inputSearch(event:any): void {
-    console.log(event.target.value)
-  }
-
-  irParHome(): void {
-    this.router.navigate(['/'])
+  // Navega para a página inicial
+  irParaHome(): void {
+    this.router.navigate(['/']);
   }
 }

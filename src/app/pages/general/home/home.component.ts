@@ -39,7 +39,7 @@ export class HomeComponent {
   constructor(private service: ApiService) {}
 
   ngOnInit() {
-    this.loadCharacters(); // Carrega os personagens ao inicializar o componente
+    this.loadCharacters();
   }
 
   // Carrega os personagens da API
@@ -52,21 +52,22 @@ export class HomeComponent {
       this.originalData = []; // Reinicia os dados originais
     }
 
-    this.service.getCharecteres(this.page).subscribe({
+    this.service.getCharacters(this.page).subscribe({
       next: (result: ListaPersonagens) => {
         if (reset) {
-          this.originalData = result.results; // Define os resultados como os dados originais se reset for verdadeiro
+          this.originalData = result.results;
         } else {
           this.originalData = [...this.originalData, ...result.results]; // Adiciona novos resultados aos dados originais
         }
 
-        this.applyFilters(); // Aplica os filtros após carregar os dados
+        // Aplica os filtros após carregar os dados, se tiver filtro selecionado
+        this.applyFilters();
 
         this.loading = false;
-        this.page++; // Incrementa a página para carregar mais dados na próxima chamada
+        this.page++;
       },
       error: () => {
-        this.loading = false; // Finaliza o indicador de carregamento em caso de erro
+        this.loading = false;
       },
     });
   }
@@ -91,7 +92,7 @@ export class HomeComponent {
         break;
       case 'Todos':
       default:
-        this.data = [...this.originalData]; // Exibe todos os personagens se o filtro for "Todos" ou não especificado
+        this.data = [...this.originalData];
         break;
     }
   }
@@ -111,10 +112,10 @@ export class HomeComponent {
 
   // Função para filtrar por nome de personagem
   onSearch(name: string): void {
-    this.nameFilter = name.trim(); // Atualiza o filtro de nome
+    this.nameFilter = name.trim();
 
     if (this.nameFilter !== '') {
-      this.service.getSearchCharacter(this.nameFilter).subscribe({
+      this.service.searchCharacters(this.nameFilter).subscribe({
         next: (data) => {
           this.originalData = data.results; // Define os resultados da pesquisa como dados originais
           this.applyFilters(); // Aplica os filtros aos resultados da pesquisa
@@ -131,8 +132,8 @@ export class HomeComponent {
 
   // Função para filtrar por status (Vivo, Morto, Desconhecido)
   filtrarListaPorStatus(filtro: string) {
-    this.filtro = filtro; // Atualiza o filtro selecionado
-    this.applyFilters(); // Aplica os filtros aos dados exibidos
+    this.filtro = filtro;
+    this.applyFilters(); 
   }
 
   exibirModoLista(exibirLista: boolean) {

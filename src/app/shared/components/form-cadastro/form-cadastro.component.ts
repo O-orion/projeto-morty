@@ -16,28 +16,30 @@ import { Usuario } from '../../../core/types/usuario';
   styleUrl: './form-cadastro.component.scss'
 })
 export class FormCadastroComponent {
-  formulario!: FormGroup;
-  @Input() title: string =''
-  @Input() perfil: boolean = false;
+  formulario!: FormGroup; // Formulário reativo do Angular
+  @Input() title: string = ''; // Título do formulário, recebido como input
+  @Input() exibirSenha: boolean = true; // Flag para exibir campos de senha
 
-  constructor(private fb: FormBuilder, private service: AuthService) {
-    this.formulario = fb.group({
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+    this.formulario = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      nome: ['',[ Validators.required]],
-      senha: ['',[ Validators.required]],
-      confirmaSenha: ['', [Validators.required]],
-    })
+      nome: ['', Validators.required],
+      senha: ['', Validators.required],
+      confirmaSenha: ['', Validators.required],
+    });
   }
 
-
   onSubmit(): void {
-    let user: Usuario = this.formulario.getRawValue() as Usuario
-
-    let result = this.service.register(user)
-    if (result) {
-      alert('Cadastrado com sucesso!')
+    if (this.formulario.valid) {
+      const usuario: Usuario = this.formulario.getRawValue() as Usuario;
+      const cadastradoComSucesso = this.authService.register(usuario);
+      if (cadastradoComSucesso) {
+        alert('Cadastro realizado com sucesso!');
+      } else {
+        alert('Preencha todos os campos corretamente.');
+      }
     } else {
-      alert('Preencha todos os campoa adequadamente!')
+      console.log('Formulário inválido. Verifique os campos.');
     }
   }
 }

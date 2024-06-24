@@ -28,25 +28,21 @@ export class FormLoginComponent {
   }
 
   onSubmit() {
-    let userLoggin = this.formulario.getRawValue() as Login
-
     if (this.formulario.valid) {
-
-      let result = this.authService.login(userLoggin.email, userLoggin.senha)
+      const userLoggin = this.formulario.getRawValue() as Login;
+      const result = this.authService.login(userLoggin.email, userLoggin.senha);
 
       if (result) {
-        this.router.navigate(['/'])
+        this.router.navigate(['/']);
       } else {
-        alert('Dados inválidos!')
+        alert('Dados inválidos!');
       }
-
     } else {
       console.log('Formulário inválido!');
     }
   }
 
-
   irParaCadastro(): void {
-    this.router.navigate(['/cadastro'])
+    this.router.navigate(['/cadastro']);
   }
 }

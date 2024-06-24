@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -10,21 +10,24 @@ import { Router } from '@angular/router';
     CommonModule
   ],
   templateUrl: './profile-menu.component.html',
-  styleUrl: './profile-menu.component.scss'
+  styleUrls: ['./profile-menu.component.scss'] 
 })
 export class ProfileMenuComponent {
 
+  @Input() isVisible: boolean = false;
+  @Output() menuClosed = new EventEmitter<void>();
 
-  @Input() show: boolean = false
-  constructor (private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  logout() {
-    this.authService.logout()
-    console.log('oie')
+  // Realiza o logout e emite um evento indicando que o menu foi fechado
+  logout(): void {
+    this.authService.logout();
+    this.menuClosed.emit();
   }
 
-  irParaPerfil() {
-    this.router.navigate(['/perfil'])
+  // Navega para a página de perfil e emite um evento indicando que o menu foi fechado
+  goToProfile(): void {
+    this.router.navigate(['/perfil']);
+    this.menuClosed.emit();
   }
-
 }

@@ -24,86 +24,74 @@
       flex-direction: column;
       gap: 20px;
 
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-
-      .label {
+      .form-field {
         display: flex;
-        gap: 5px;
+        flex-direction: column;
+        gap: 6px;
 
-        label {
-          margin: 0;
-          color: $secondary-color;
-          font-family: $font-subtitle;
-          font-weight: 500;
-        }
-        span {
-          background-color: $secondary-color;
-          color: $textSecondary-color;
-          padding: 2px;
-          font-size: 20px;
-          border-radius: 20px;
+        .label {
+          display: flex;
+          gap: 5px;
+
+          label {
+            margin: 0;
+            color: $secondary-color;
+            font-family: $font-subtitle;
+            font-weight: 500;
+          }
+          span {
+            background-color: $secondary-color;
+            color: $textSecondary-color;
+            padding: 2px;
+            font-size: 20px;
+            border-radius: 20px;
+          }
         }
 
+        input {
+          background-color: transparent;
+          height: 30px;
+          outline: none;
+          border-radius: 5px;
+          border: 2px solid $secondary-color;
+          color: $text-color;
+          padding: 0 5px;
+
+          &::placeholder {
+            color: $textSecondary-color;
+            font-size: 13px;
+          }
+        }
       }
 
-      input {
-        background-color: transparent;
+      .button {
+        font-family: $font-subtitle;
+        font-weight: 500;
+        align-self: flex-end;
+        margin-top: 20px;
+        width: 70px;
         height: 30px;
-        outline: none;
-        border-radius: 5px;
-        border: 2px solid $secondary-color;
-        color: $text-color;
-        padding: 0 5px;
+        border-radius: 50px;
+        border: none;
+        transition: 0.5s ease-in-out;
+
+        &.button-ativado {
+          background: $primary-color;
+          color: $text-color;
+
+          &:hover {
+            background-color: transparent;
+            border: 1px solid $secondary-color;
+          }
+        }
+
+        &.button-desativado {
+          background-color: $textSecondary-color;
+          color: $text-color;
+        }
       }
 
-      input::placeholder {
-        color: $textSecondary-color;
-        font-size: 13px;
-      }
-
-
     }
-
-    .button {
-      font-family: $font-subtitle;
-      font-weight: 500;
-      align-self: flex-end;
-      margin-top: 20px;
-      width: 70px;
-
-      border-radius: 50px;
-      height: 30px;
-      border: none;
-      transition: 0.5s ease-in-out
-
-    }
-    .button-ativado {
-
-      background: $primary-color;
-
-      box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-
-      color:  $text-color;
-
-    }
-
-    .button-ativado:hover {
-      background-color: transparent;
-      border: 1px solid $secondary-color;
-    }
-
-    .button-desativado {
-      background-color: $textSecondary-color;
-      box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-      color:  $text-color;
-
-    }
-
     .mensagem-sucesso {
       font-family: $font-subtitle;
       font-weight: 500;

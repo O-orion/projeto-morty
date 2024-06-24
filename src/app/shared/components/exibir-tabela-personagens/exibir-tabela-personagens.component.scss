@@ -3,8 +3,7 @@
 .container {
   display: flex;
   justify-content: center;
-  padding: 20px 0px;
-
+  padding: 20px 0;
 
   .box-tabela {
     width: 80%;
@@ -21,6 +20,7 @@
       th, td {
         padding: 12px 15px;
         text-align: center;
+        border-bottom: 1px solid $table-border-color;
       }
 
       .cabecalho-tabela {
@@ -28,73 +28,70 @@
         color: $text-color;
         font-family: $font-subtitle;
         font-weight: 600;
-
-        th {
-          border-bottom: 2px solid $table-border-color;
-        }
       }
 
       .corpo-tabela {
         tr {
           cursor: pointer;
-          border-bottom: 1px solid $table-border-color;
+          transition: background-color 0.3s ease;
 
           &:hover {
             background-color: $table-hover-bg;
           }
 
-          &:last-child {
-            border-bottom: none;
+          td {
+            color: #333;
+            font-family: $font-subtitle;
           }
-        }
-
-        td {
-          color: #333;
-          font-family: $font-subtitle;
         }
       }
     }
   }
-}
 
-@media (max-width: 950px) {
-  .box-tabela {
-    width: 80% !important;
-    background-color: yellow;
-    overflow-x: auto;
+  @media (max-width: 950px) {
+    .box-tabela {
+      width: 80% !important;
+      background-color: rgb(148, 148, 148);
+      overflow-x: auto;
 
-    .tabela {
-      display: block;
-
-      thead {
-        display: none;
-      }
-
-      tbody {
+      .tabela {
         display: block;
 
-        tr {
-          display: flex;
-          flex-direction: column;
-          border-bottom: 2px solid $table-border-color;
-          margin-bottom: 10px;
-          padding: 10px;
+        thead {
+          display: none;
+        }
 
-          td {
+        tbody {
+          display: block;
+
+          tr {
             display: flex;
-            justify-content: space-between;
-            padding: 10px 5px;
-            border-bottom: 1px solid $table-border-color;
+            flex-direction: column;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-bottom: 2px solid $table-border-color;
+            transition: background-color 0.3s ease;
 
-            &:last-child {
-              border-bottom: none;
+            &:hover {
+              background-color: $table-hover-bg;
             }
 
-            &::before {
-              content: attr(data-label);
-              flex-basis: 40%;
-              text-align: left;
-              font-weight: bold;
+            td {
+              display: flex;
+              justify-content: space-between;
+              padding: 10px 5px;
+              border-bottom: 1px solid $table-border-color;
+
+              &::before {
+                content: attr(data-label);
+                flex-basis: 40%;
+                text-align: left;
+                font-weight: bold;
+              }
+
+              &:last-child {
+                border-bottom: none;
+              }
             }
           }
         }

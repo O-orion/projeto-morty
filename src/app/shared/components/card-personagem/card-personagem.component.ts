@@ -12,17 +12,15 @@ import { CardStatusComponent } from '../card-status/card-status.component';
     CardStatusComponent
   ],
   templateUrl: './card-personagem.component.html',
-  styleUrl: './card-personagem.component.scss'
+  styleUrls: ['./card-personagem.component.scss']
 })
 export class CardPersonagemComponent {
-  @Input() personagem: Personagem = {} as Personagem;
+  @Input() personagem: Personagem = {} as Personagem; 
 
-  constructor (private router: Router) { }
+  constructor(private router: Router) { }
 
-  detailsPage(id: number):void {
-    this.router.navigate(['/details', id])
-   }
-
+  // Navega para a página de detalhes do personagem com o ID fornecido
+  detailsPage(id: number): void {
+    this.router.navigate(['/details', id]);
+  }
 }
-
-

@@ -1,29 +1,22 @@
 import { Component, Input } from '@angular/core';
-import { ListaPersonagens, Personagem } from '../../../core/types/listaPersonagens';
+import { Personagem } from '../../../core/types/listaPersonagens';
 import { Router } from '@angular/router';
 import { CardPersonagemComponent } from '../card-personagem/card-personagem.component';
 
 @Component({
   selector: 'app-listagem-personagens',
   standalone: true,
-  imports: [
-    CardPersonagemComponent
-  ],
+  imports: [CardPersonagemComponent],
   templateUrl: './listagem-personagens.component.html',
-  styleUrl: './listagem-personagens.component.scss'
+  styleUrls: ['./listagem-personagens.component.scss']
 })
 export class ListagemPersonagensComponent {
-
-  @Input() data!: Personagem[]
+  @Input() personagens!: Personagem[];
 
   constructor(private router: Router) { }
 
-  ngOnInit() {
-
+  // Navega para a página de detalhes do personagem com o ID fornecido
+  detailsPage(id: number): void {
+    this.router.navigate(['/details', id]);
   }
-
- detailsPage(id: number):void {
-  this.router.navigate(['/details', id])
- }
-
 }

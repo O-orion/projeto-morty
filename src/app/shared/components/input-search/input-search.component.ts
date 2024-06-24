@@ -12,6 +12,7 @@ export class InputSearchComponent {
 
   search = output<string>()
 
+  // Pegando e transmitindo o parâmentro inserido pelo usuário
   inputSearch(event:any): void {
     let  valueSearch: string = event.target.value;
     this.search.emit(valueSearch)

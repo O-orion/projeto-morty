@@ -14,17 +14,14 @@ import { Router } from '@angular/router';
 })
 export class ExibirTabelaPersonagensComponent {
 
-  @Input() data!: Personagem[]
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  @Input() data!: Personagem[]; // Lista de personagens recebida como input
+  displayedColumns: string[] = ['Id', 'Nome', 'Localização', 'Espécie', 'Status', 'Qtd Episódios'];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
+  // Método para navegar para a página de detalhes do personagem
+  detailsPage(id: number): void {
+    this.router.navigate(['/details', id]);
   }
-
-  detailsPage(id: number):void {
-    this.router.navigate(['/details', id])
-   }
-
-
+  
 }

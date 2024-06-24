@@ -1,7 +1,7 @@
 <section class="container-list">
   <div class="listagem-personagens">
-    @for ( personagem of data; track  personagem.id) {
-      <app-card-personagem [personagem]="personagem" ></app-card-personagem>
+    @for (personagem of personagens; track personagem.id) {
+      <app-card-personagem [personagem]="personagem"></app-card-personagem>
     } @empty {
       <p>carregando...</p>
     }

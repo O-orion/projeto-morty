@@ -6,7 +6,6 @@
   align-items: center;
 
   .box-visualizacao {
-
     width: 60%;
     display: flex;
     justify-content: space-between;
@@ -20,8 +19,7 @@
 
     .filtro-status {
       position: relative;
-
-      padding:  0px 5px 0px 0px;
+      padding: 0 5px 0 0;
       display: flex;
       align-items: center;
       background-color: rgba(255, 255, 255, 0.504);
@@ -35,13 +33,12 @@
       }
 
       .filtro-menu {
-
-        flex-direction: column;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         padding: 5px;
         background-color: gray;
-        border-radius: 5px ;
+        border-radius: 5px;
         position: absolute;
         height: 100px;
         width: 120px;
@@ -54,7 +51,6 @@
           border-bottom: 1px solid #191919;
         }
       }
-
     }
   }
 
@@ -64,7 +60,6 @@
     color: $textSecondary-color;
     cursor: pointer;
     border-radius: 8px;
-
   }
 
   .icones {
@@ -73,13 +68,12 @@
     border-radius: 8px;
     color: $text-color;
     cursor: pointer;
-
     transition: 0.5s ease-in-out;
-  }
 
-  .icones:hover {
-    color: $primary-color;
-    background-color: $text-color;
+    &:hover {
+      color: $primary-color;
+      background-color: $text-color;
+    }
   }
 }
 
@@ -88,18 +82,15 @@
 }
 
 @media screen and (max-width: 950px) {
-
   .container {
     margin: 0;
     padding: 0 5px;
-    .box-visualizacao {
 
+    .box-visualizacao {
       width: 80%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-
     }
-
   }
- }
+}

@@ -18,46 +18,48 @@ import { CommonModule } from '@angular/common';
   styleUrl: './meu-perfil.component.scss'
 })
 export class MeuPerfilComponent {
-  user!: Usuario;
-  formulario!: FormGroup;
-  formInvalido: boolean = false;
+  usuario!: Usuario; // Informações do usuário logado
+  formulario!: FormGroup; // Formulário de edição do perfil
+  formInvalido: boolean = false; // Flag para exibir mensagem de sucesso
 
-  constructor(private authService: AuthService, private fb: FormBuilder ) {
+  constructor(private authService: AuthService, private fb: FormBuilder) {
     this.formulario = fb.group({
       nome: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-    })
-   }
+    });
+  }
 
-  ngOnInit()  {
+  ngOnInit(): void {
+
     if (this.authService.isLoggedIn()) {
-      this.user = this.authService.getUsuario() as Usuario
-      this.preencherFormUser()
+      // Obtém informações do usuário logado
+      this.usuario = this.authService.getUsuario() as Usuario;
+      this.preencherFormulario(); 
     }
   }
 
-  private preencherFormUser():void {
-    this.formulario.get('nome')?.setValue(this.user.nome)
-    this.formulario.get('email')?.setValue(this.user.email)
+  // Preenche o formulário com os dados do usuário
+  private preencherFormulario(): void {
+    this.formulario.get('nome')?.setValue(this.usuario.nome);
+    this.formulario.get('email')?.setValue(this.usuario.email);
   }
 
-  atualizarDadosUser(): void {
-    let campoNome = this.formulario.get('nome')?.value
-    let campoEmail = this.formulario.get('email')?.value
-    let camposIguais = campoEmail == this.user.email && campoNome == this.user.nome
+  // Atualiza os dados do usuário no serviço de autenticação
+  atualizarDadosUsuario(): void {
+    const nomeAtualizado = this.formulario.get('nome')?.value as string;
+    const emailAtualizado = this.formulario.get('email')?.value as string;
 
-    if (!camposIguais) {
+    // Verifica se houve alterações nos dados do usuário
+    if (emailAtualizado !== this.usuario.email || nomeAtualizado !== this.usuario.nome) {
+      this.usuario.email = emailAtualizado;
+      this.usuario.nome = nomeAtualizado;
 
-      this.user.email = this.formulario.get('email')?.value as string
-      this.user.nome = this.formulario.get('nome')?.value as string
+      // Chama o serviço para atualizar os dados do usuário
+      const atualizacaoSucesso = this.authService.updateUser(this.usuario);
 
-
-      let result = this.authService.updateUser(this.user)
-
-      if (result){
-        this.formInvalido = true;
+      if (atualizacaoSucesso) {
+        this.formInvalido = true; // Exibe mensagem de sucesso após a atualização
       }
     }
-
   }
 }

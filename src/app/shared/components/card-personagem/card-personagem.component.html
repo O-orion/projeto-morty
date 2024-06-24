@@ -1,30 +1,28 @@
 <div (click)="detailsPage(personagem.id)" class="card-personagem">
   <div class="image-personagem">
-    <img src="{{personagem.image }}" alt="">
+    <img [src]="personagem.image" alt="Imagem do personagem">
   </div>
 
   <div class="info-personagem">
-    <section class="info-texts" >
+    <section class="info-texts">
       <div class="info-persona">
-        <p class="info-name" > {{ personagem.name }}</p>
-        <app-card-status [status]="personagem.status" ></app-card-status>
+        <p class="info-name">{{ personagem.name }}</p>
+        <app-card-status [status]="personagem.status"></app-card-status>
       </div>
       <p class="info-location">
-        Location: {{ personagem.location.name }}
+        Localização: {{ personagem.location.name }}
       </p>
-
     </section>
 
     <section class="cards-info">
       <div class="card-info">
         <p class="card-title">Espécie</p>
-        <p class="card-subTitle"> {{ personagem.species }} </p>
+        <p class="card-subTitle">{{ personagem.species }}</p>
       </div>
       <div class="card-info">
         <p class="card-title">Episódios</p>
         <p class="card-subTitle">{{ personagem.episode.length }}</p>
       </div>
     </section>
-
   </div>
 </div>

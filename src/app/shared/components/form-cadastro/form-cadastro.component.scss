@@ -1,17 +1,17 @@
-@import '../../../../styles.scss';
+@import '../../../../styles.scss'; // Importa variáveis de estilos globais, se necessário
 
 .box-form {
   color: $text-color;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-
   padding: 20px;
   overflow: hidden;
 
-  .titule-form {
+  .titulo-formulario {
     color: $primary-color;
     font: $font-title;
     font-weight: 500;
   }
+
   .container-form {
     margin-top: 20px;
 
@@ -41,7 +41,7 @@
 
         &:focus {
           outline: none;
-          border-color: $border-color; /* Ajusta a cor da borda ao focar */
+          border-color: $border-color; // Ajusta a cor da borda ao focar
         }
       }
 
@@ -54,5 +54,4 @@
       }
     }
   }
-
 }

@@ -1,75 +1,68 @@
 <div class="box-form">
-  <h2 class="titule-form">{{ title }}</h2>
+  <h2 class="titulo-formulario">Crie sua Conta ;)</h2>
   <form [formGroup]="formulario" class="container-form" action="">
     <div class="container-input">
-      <label class="label-form" for="nome"
-        >Nome <span class="required">*</span>
-      </label>
+      <label class="label-form" for="nome">Nome <span class="required">*</span></label>
       <input
         id="nome"
         class="campo-form"
         type="text"
-        placeholder="Fulano D Tal"
+        placeholder="Informe seu nome completo"
         formControlName="nome"
       />
+      <!-- Exibe mensagem de erro se o campo de nome foi tocado e é inválido -->
       @if (formulario.get('nome')?.touched && formulario.get('nome')?.invalid) {
-      <span class="form-error">Campo inválido!</span>
+        <span class="form-error">Nome inválido!</span>
       }
     </div>
 
     <div class="container-input">
-      <label class="label-form" for="email"
-        >E-mail <span class="required">*</span>
-      </label>
+      <label class="label-form" for="email">E-mail <span class="required">*</span></label>
       <input
         id="email"
         class="campo-form"
         type="text"
-        placeholder="Fulano@gmail.com"
+        placeholder="seuemail@example.com"
         formControlName="email"
       />
-      @if (formulario.get('email')?.touched && formulario.get('email')?.invalid)
-      {
-      <span class="form-error">Campo inválido!</span>
+      <!-- Exibe mensagem de erro se o campo de email foi tocado e é inválido -->
+      @if (formulario.get('email')?.touched && formulario.get('email')?.invalid) {
+        <span class="form-error">E-mail inválido!</span>
       }
     </div>
 
-    @if(!perfil) {
+    @if(exibirSenha) {
       <div class="container-input">
-        <label class="label-form" for="senha"
-          >Senha <span class="required">*</span>
-        </label>
+        <label class="label-form" for="senha">Senha <span class="required">*</span></label>
         <input
           id="senha"
           class="campo-form"
           type="password"
-          placeholder="*******"
+          placeholder="********"
           formControlName="senha"
         />
-        @if (formulario.get('senha')?.touched && formulario.get('senha')?.invalid)
-        {
-        <span class="form-error">Campo inválido!</span>
+        <!-- Exibe mensagem de erro se o campo de senha foi tocado e é inválido -->
+        @if (formulario.get('senha')?.touched && formulario.get('senha')?.invalid) {
+          <span class="form-error">Senha inválida!</span>
         }
       </div>
 
       <div class="container-input">
-        <label class="label-form" for="confirmaSenha"
-          >Confirme Sua Senha <span class="required">*</span>
-        </label>
+        <label class="label-form" for="confirmaSenha">Confirme sua Senha <span class="required">*</span></label>
         <input
           id="confirmaSenha"
           class="campo-form"
           type="password"
-          placeholder="*******"
+          placeholder="********"
           formControlName="confirmaSenha"
         />
-        @if (formulario.get('confirmaSenha')?.touched &&
-        formulario.get('confirmaSenha')?.invalid) {
-        <span class="form-error">Campo inválido!</span>
+        <!-- Exibe mensagem de erro se o campo de confirmação de senha foi tocado e é inválido -->
+        @if (formulario.get('confirmaSenha')?.touched && formulario.get('confirmaSenha')?.invalid) {
+          <span class="form-error">Confirmação de senha inválida!</span>
         }
       </div>
     }
 
   </form>
-  <app-button-submit (submit)="onSubmit()" text="{{ perfil ? 'Salvar':'Cadastrar' }}"></app-button-submit>
+  <app-button-submit (submit)="onSubmit()" [text]="exibirSenha ? 'Cadastrar' : 'Salvar'"></app-button-submit>
 </div>
