@@ -1,5 +1,5 @@
 <div class="profile-menu" [ngClass]="{'show': show}">
   <!-- Adicione aqui os itens do menu -->
-  <a href="/perfil">Perfil</a>
+  <a (click)="irParaPerfil()">Perfil</a>
   <a (click)="logout()" >Logout</a>
 </div>

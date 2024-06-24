@@ -25,7 +25,7 @@ export class MenuComponent {
     let usuario = this.authService.getUsuario()
 
     if (usuario != null) {
-      this.nomeUsuario = usuario.nome
+      this.nomeUsuario = usuario.nome.split(' ')[0]
     }
   }
 

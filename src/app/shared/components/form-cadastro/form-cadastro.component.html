@@ -1,5 +1,5 @@
 <div class="box-form">
-  <h2 class="titule-form">Crie sua Conta!</h2>
+  <h2 class="titule-form">{{ title }}</h2>
   <form [formGroup]="formulario" class="container-form" action="">
     <div class="container-input">
       <label class="label-form" for="nome"
@@ -34,39 +34,42 @@
       }
     </div>
 
-    <div class="container-input">
-      <label class="label-form" for="senha"
-        >Senha <span class="required">*</span>
-      </label>
-      <input
-        id="senha"
-        class="campo-form"
-        type="password"
-        placeholder="*******"
-        formControlName="senha"
-      />
-      @if (formulario.get('senha')?.touched && formulario.get('senha')?.invalid)
-      {
-      <span class="form-error">Campo inválido!</span>
-      }
-    </div>
+    @if(!perfil) {
+      <div class="container-input">
+        <label class="label-form" for="senha"
+          >Senha <span class="required">*</span>
+        </label>
+        <input
+          id="senha"
+          class="campo-form"
+          type="password"
+          placeholder="*******"
+          formControlName="senha"
+        />
+        @if (formulario.get('senha')?.touched && formulario.get('senha')?.invalid)
+        {
+        <span class="form-error">Campo inválido!</span>
+        }
+      </div>
 
-    <div class="container-input">
-      <label class="label-form" for="confirmaSenha"
-        >Confirme Sua Senha <span class="required">*</span>
-      </label>
-      <input
-        id="confirmaSenha"
-        class="campo-form"
-        type="password"
-        placeholder="*******"
-        formControlName="confirmaSenha"
-      />
-      @if (formulario.get('confirmaSenha')?.touched &&
-      formulario.get('confirmaSenha')?.invalid) {
-      <span class="form-error">Campo inválido!</span>
-      }
-    </div>
+      <div class="container-input">
+        <label class="label-form" for="confirmaSenha"
+          >Confirme Sua Senha <span class="required">*</span>
+        </label>
+        <input
+          id="confirmaSenha"
+          class="campo-form"
+          type="password"
+          placeholder="*******"
+          formControlName="confirmaSenha"
+        />
+        @if (formulario.get('confirmaSenha')?.touched &&
+        formulario.get('confirmaSenha')?.invalid) {
+        <span class="form-error">Campo inválido!</span>
+        }
+      </div>
+    }
+
   </form>
-  <app-button-submit (submit)="onSubmit()" text="Cadastrar"></app-button-submit>
+  <app-button-submit (submit)="onSubmit()" text="{{ perfil ? 'Salvar':'Cadastrar' }}"></app-button-submit>
 </div>

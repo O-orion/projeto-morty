@@ -47,9 +47,16 @@ export class AuthService {
 
   }
 
-  logout () {
-    localStorage.removeItem('loggedInUser')
-    this.router.navigate(['/login'])
+  updateUser(user:Usuario) {
+    const email = localStorage.getItem('loggedInUser');
+
+    if (email) {
+      localStorage.setItem(email, JSON.stringify(user))
+      return true;
+    }
+
+    return false;
+
   }
 
   isLoggedIn(): boolean {
@@ -58,5 +65,11 @@ export class AuthService {
     }
     return false;
   }
+
+  logout () {
+    localStorage.removeItem('loggedInUser')
+    this.router.navigate(['/login'])
+  }
+
 
 }

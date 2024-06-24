@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ButtonSubmitComponent } from '../button-submit/button-submit.component';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -17,6 +17,8 @@ import { Usuario } from '../../../core/types/usuario';
 })
 export class FormCadastroComponent {
   formulario!: FormGroup;
+  @Input() title: string =''
+  @Input() perfil: boolean = false;
 
   constructor(private fb: FormBuilder, private service: AuthService) {
     this.formulario = fb.group({

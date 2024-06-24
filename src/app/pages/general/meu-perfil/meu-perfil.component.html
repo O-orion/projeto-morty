@@ -1,0 +1,36 @@
+<section class="container">
+  <h2>Seu Perfil</h2>
+  <div class="form-perfil">
+    @if(formInvalido) {
+      <p class="mensagem-sucesso" >Seus dados forão alterados e salvos! </p>
+    }
+    <form [formGroup]="formulario" action="">
+      <div class="form-field">
+        <div class="label">
+          <span class="material-symbols-outlined">
+            id_card
+          </span>
+          <label for="">Nome</label>
+        </div>
+
+        <input formControlName="nome" type="text" placeholder="Fulano D Tal">
+      </div>
+
+      <div class="form-field">
+        <div class="label">
+          <span class="material-symbols-outlined">
+            mail
+            </span>
+          <label for="">E-mail</label>
+        </div>
+
+        <input  formControlName="email" type="text" placeholder="nome"  placeholder="meuemail@mgial;com">
+      </div>
+
+
+    </form>
+
+    <button class="button"  [ngClass]="formulario.valid ? 'button-ativado':'button-desativado' " (click)="atualizarDadosUser()"  >Salvar</button>
+  </div>
+
+</section>

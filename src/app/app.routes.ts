@@ -5,6 +5,7 @@ import { GeneralComponent } from './pages/general/general.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { MeuPerfilComponent } from './pages/general/meu-perfil/meu-perfil.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,11 @@ export const routes: Routes = [
         component: DetailsComponent,
         title: 'Detalhes'
       },
+      {
+        path:'perfil',
+        component: MeuPerfilComponent,
+        title: 'Meu Perfil'
+      }
     ]
   },
   {
