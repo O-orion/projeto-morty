@@ -38,7 +38,7 @@ export class FormLoginComponent {
         alert('Dados inválidos!');
       }
     } else {
-      console.log('Formulário inválido!');
+      alert('Dados inválidos!')
     }
   }
 
