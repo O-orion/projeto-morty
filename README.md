@@ -1,27 +1,38 @@
-# Projeto
+# Projeto Morty and Rick com Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
+Este projeto consiste em uma aplicação web seguindo o modelo de dashboard, integrada com a versão REST da API do Rick and Morty. A aplicação inclui funcionalidades como listagem paginada, detalhes de itens, busca global e outras funcionalidades opcionais.
 
-## Development server
+## Funcionalidades Implementadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [x] Modelo de dashboard implementado.
+- [x] Utilização da versão REST da API do Rick and Morty.
+- [x] Página de listagem de personagens.
+- [x] Página de detalhes de personagem acessível ao clicar em um item da listagem.
+- [x] Paginação implementada na listagem de personagens (scroll infinito).
+- [x] Barra de busca global na aplicação.
+- [x] Filtro da barra de busca aplicado na listagem ativa.
+- [x] Funcionalidade de busca integrada em todas as listagens implementadas.
+- [x] Persistência do filtro de busca ao trocar entre diferentes listagens.
+- [x] Tela de login implementada.
+- [x] Página de perfil do usuário.
+- [x] Menu com nome do usuário logado e opção para realizar logout.
+- [x] Implementação de dois tipos de visualização: lista e cards.
+- [x] Detalhes completos do personagem exibidos em uma página dedicada.
 
-## Code scaffolding
+## Estrutura do Projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+A estrutura do projeto é organizada de acordo com as boas práticas de desenvolvimento Angular, separando pages, componentes, serviços de forma modularizada e escalável.
 
-## Build
+## Tecnologias Utilizadas
+- Angular
+- TypeScript
+- HTML/SCSS
+- RxJS
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Neste projeto, foram instaladas as bibliotecas Angular Material e ScrollInfinite. No entanto, optei por desenvolver meus próprios componentes e implementar a funcionalidade de scroll infinito utilizando recursos nativos do Angular.
 
-## Running unit tests
+1. **Instalação das Dependências:**
+  npm i ou npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Autor
+  Lucas Viana Torres
