@@ -3,7 +3,9 @@
     @for (personagem of personagens; track personagem.id) {
       <app-card-personagem [personagem]="personagem"></app-card-personagem>
     } @empty {
-      <p>carregando...</p>
+      <div class="listagem-vazia">
+        <p class="mensagem-aviso" >Lamento, mas nenhum personagem foi encontrado!</p>
+      </div>
     }
   </div>
 </section>

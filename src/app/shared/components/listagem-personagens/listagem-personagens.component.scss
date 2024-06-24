@@ -7,6 +7,14 @@
 
   .listagem-personagens {
     width: 60%;
+
+    .listagem-vazia {
+      padding-top: 50px;
+      text-align: center;
+      color: $text-color;
+      font-family: $font-subtitle;
+      font-weight: 500;
+    }
   }
 }
 

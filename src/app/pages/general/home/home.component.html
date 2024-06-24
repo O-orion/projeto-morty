@@ -1,9 +1,13 @@
 <app-title-color-animado title="Rick And Mory Api" ></app-title-color-animado>
 <app-input-search (search)="onSearch($event)" ></app-input-search>
 <app-modos-visualizacao (filtroEscolhido)="filtrarListaPorStatus($event)" (toggleList)="exibirModoLista($event)" ></app-modos-visualizacao>
-@if(exibirListaPersonagem){
-  <app-listagem-personagens [personagens]="data"></app-listagem-personagens>
+@if (!loading) {
+  @if(exibirListaPersonagem){
+    <app-listagem-personagens [personagens]="data"></app-listagem-personagens>
+  } @else {
+    <app-exibir-tabela-personagens [data]="data"></app-exibir-tabela-personagens>
+  }
 } @else {
-  <app-exibir-tabela-personagens [data]="data"></app-exibir-tabela-personagens>
+  <app-loading></app-loading>
 }
 

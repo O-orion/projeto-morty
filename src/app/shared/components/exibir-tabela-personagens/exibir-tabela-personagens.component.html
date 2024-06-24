@@ -19,6 +19,14 @@
             <td data-label="Status">{{ personagem.status }}</td>
             <td data-label="Qtd Episódios">{{ personagem.episode.length }}</td>
           </tr>
+        } @empty {
+          <tr cl
+          ass="listagem-vazia">
+            <td>
+        
+              Lamento, mas nenhum personagem foi encontrado!
+            </td>
+          </tr>
         }
       </tbody>
     </table>

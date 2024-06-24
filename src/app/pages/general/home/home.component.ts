@@ -10,6 +10,7 @@ import {
 import { InputSearchComponent } from '../../../shared/components/input-search/input-search.component';
 import { ModosVisualizacaoComponent } from '../../../shared/components/modos-visualizacao/modos-visualizacao.component';
 import { ExibirTabelaPersonagensComponent } from '../../../shared/components/exibir-tabela-personagens/exibir-tabela-personagens.component';
+import { LoadingComponent } from '../../../shared/components/loading/loading.component';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,7 @@ import { ExibirTabelaPersonagensComponent } from '../../../shared/components/exi
     InputSearchComponent,
     ModosVisualizacaoComponent,
     ExibirTabelaPersonagensComponent,
+    LoadingComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -133,7 +135,7 @@ export class HomeComponent {
   // Função para filtrar por status (Vivo, Morto, Desconhecido)
   filtrarListaPorStatus(filtro: string) {
     this.filtro = filtro;
-    this.applyFilters(); 
+    this.applyFilters();
   }
 
   exibirModoLista(exibirLista: boolean) {
